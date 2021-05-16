@@ -1,65 +1,37 @@
 import Head from 'next/head'
-import Navigation from '../components/navigation.tsx'
-import Footer from '../components/footer.tsx'
-import Intro from '../components/intro.tsx'
-import Link from 'next/link'
+import { useEffect } from 'react'
+import Navigation from '../components/navigation'
+import Footer from '../components/footer'
+import Heuristics from '../components/heuristics'
+import ArticleList from '../components/articleList'
+import GetEmail from '../util/getEmail.ts'
 
 export default function Home () {
+
+  useEffect(() => {
+    return GetEmail("email")
+  })
+
   return (
-    <div className="wrapper-big">
+    <div>
       <Head>
         <title>UI Design and Developement</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navigation isHomepage={ true }/>
-      <header>
-      </header>
-      <main className="main">
-        
-        <Intro />
 
-        <h3>Articles:</h3>
-        <ul>
-          <li>
-            <Link href='/resilient-ui'>
-              <a>
-                5 Notes on How to Design a Resilient UI
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/complexity'>
-              <a>
-                We&apos;re so Bad at Judging Complexity, yet We Like to Predict
-                (Getting Perspective on Complexity)
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/henry-ford-for-makers'>
-              <a>
-                Henry Ford for Makers: Quotes on Design 
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/ui-coins'>
-              <a>
-                Contrast in UI Design
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/crowd'>
-              <a>
-                Old Programming Wisdom Beats Crowdsourced Advice
-              </a>
-            </Link>
-          </li>
-        </ul>
-      </main>
+      <div className="page-wrapper">
 
-      <Footer />
+        <Navigation isHomepage={ true }/>
+        <header>
+        </header>
+        <main className="main content-wrapper">
+
+          <Heuristics/>
+          <ArticleList/>
+        </main>
+        <div id="email"></div>
+        <Footer />
+      </div>
     </div>
   )
 }

@@ -16,6 +16,7 @@ a {
   color: $text-color;
   text-decoration: underline;
   text-decoration-style: dotted;
+  text-decoration-color: #555;
 }
 
 nav {
@@ -32,7 +33,7 @@ nav svg {
   background-color: #921;
 }
 
-.wrapper-big {
+.page-wrapper {
   max-width: 60rem;
   margin: 0 auto;
 }
@@ -40,10 +41,25 @@ nav svg {
 p,
 ol,
 ul{
+  margin: 0 0 1rem 0;
+  max-width: 36em;
+  line-height: 1.5;
+}
+
+.p--large {
+  font-size: 1.25rem; 
+}
+
+section {
+  margin: 3rem 0;
 }
 
 article {
   max-width: 36rem;
+}
+
+.content-wrapper {
+  max-width: 40rem;
 }
 
 h1,
@@ -81,6 +97,11 @@ blockquote {
   padding: 0 0 0 1rem;
   border: #444 dotted;
   border-width: 0 0 0 1px;
+}
+
+img,
+svg {
+  vertical-align: middle;
 }
 
 .video-wrapper {

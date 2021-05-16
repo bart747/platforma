@@ -1,26 +1,12 @@
-import Head from 'next/head'
-import Footer from '../components/footer'
-import ReactMarkdown from 'react-markdown'
-import Navigation from '../components/navigation'
+import ArticlePage from '../components/article'
 import { GetStaticProps } from 'next'
 
 function article ({ content }) {
-  const title = '5 Notes on How to Design a Resilient UI'
-
   return (
-    <div className="wrapper-big">
-      <Head>
-        <title>{ title }</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Navigation />
-      <article>
-        <ReactMarkdown allowDangerousHtml={true}>
-          { content }
-        </ReactMarkdown>
-      </article>
-      <Footer />
-    </div>
+    <ArticlePage
+      title={'5 Notes on How to Design a Resilient UI'}
+      content={content}
+    />
   )
 }
 
