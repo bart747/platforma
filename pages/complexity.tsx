@@ -16,11 +16,11 @@ We're so Bad at Judging Complexity, yet We Like to Predict
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />
-        <article>
-          <ReactMarkdown>
-            { content }
-          </ReactMarkdown>
-        </article>
+      <article>
+        <ReactMarkdown allowDangerousHtml={true}>
+          { content }
+        </ReactMarkdown>
+      </article>
       <Footer />
     </div>
   )

@@ -2,10 +2,11 @@ import styles from './footer.module.scss'
 
 function Footer(props) {
  return (
-   <footer className={styles.footer}>
+   <footer className={ styles.footer }>
      <p>
        ©2016-2020 Bartosz Wieczorek.<br />
-       Some rights reserved — <a href="https://creativecommons.org/licenses/by/4.0/">
+       Some rights reserved — <a
+         href="https://creativecommons.org/licenses/by/4.0/">
        CC BY 4.0
        </a> — please attribute and link back.
      </p>

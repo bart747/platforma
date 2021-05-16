@@ -15,7 +15,7 @@ function article ({ content }) {
       </Head>
       <Navigation />
       <article>
-        <ReactMarkdown>
+        <ReactMarkdown allowDangerousHtml={true}>
           { content }
         </ReactMarkdown>
       </article>
