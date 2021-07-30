@@ -12,11 +12,10 @@ function getEmail(id: string) {
   <polyline points="22,6 12,13 2,6"></polyline>
 </svg>
  `
-  const myEmailAlias: string = "hello.bartosz"
+  const myEmailAlias: string = 'hello.bartosz'
   const placement = document.getElementById(id)
   placement.innerHTML = `
-${svg}
-<a href="mailto:${ myEmailAlias }@gmail.com">${ myEmailAlias }@gmail.com</a>
+<a href="mailto:${myEmailAlias}@gmail.com">${svg}${myEmailAlias}@gmail.com</a>
   `
 }
 

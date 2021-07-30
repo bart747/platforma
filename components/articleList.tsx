@@ -2,9 +2,23 @@ import Link from 'next/link'
 
 function ArticleList () {
   return (
-    <section>
-      <h3>Articles:</h3>
+    <section className="article-list">
+      <h2>Articles:</h2>
       <ul>
+      <li>
+          <Link href='/crowd'>
+            <a>
+              Old Programming Wisdom Beats Crowdsourced Advice
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link href='/planck'>
+            <a>
+              Max Planck on New Ideas and Creative Work
+            </a>
+          </Link>
+        </li>
         <li>
           <Link href='/resilient-ui'>
             <a>
@@ -31,13 +45,6 @@ function ArticleList () {
           <Link href='/ui-coins'>
             <a>
               Contrast in UI Design
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/crowd'>
-            <a>
-              Old Programming Wisdom Beats Crowdsourced Advice
             </a>
           </Link>
         </li>

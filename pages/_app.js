@@ -1,6 +1,6 @@
-import '../styles/globals.scss'
+import '../styles/primer.scss'
 
-function MyApp({ Component, pageProps }) {
+function MyApp ({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
 

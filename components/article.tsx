@@ -16,11 +16,11 @@ function ArticlePage (props: ArticleProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />
-      <article>
-        <ReactMarkdown allowDangerousHtml={true}>
-          { props.content }
-        </ReactMarkdown>
-      </article>
+        <article>
+          <ReactMarkdown allowDangerousHtml={true}>
+            { props.content }
+          </ReactMarkdown>
+        </article>
       <Footer />
     </div>
   )

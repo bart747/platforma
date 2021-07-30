@@ -1,8 +1,9 @@
-function navigation() {
+function navigation () {
+  const symbol: string = "f(⌂)" 
   return (
     <nav>
       <a href="/">
-        Fat Arrow
+        <pre> { symbol } </pre>
       </a>
     </nav>
 
@@ -10,4 +11,3 @@ function navigation() {
 }
 
 export default navigation
-

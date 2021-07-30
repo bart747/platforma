@@ -1,19 +1,19 @@
 function Heuristics() {
   return (
-    <section>
-      <h3>Favorite Heuristics</h3>
-      <p className="p--large">
+    <section className="heuristics">
+      <h2>Favorite Heuristics</h2>
+      <blockquote>
         Low input, high output – require minimal activity from users,
         but give them high quality feedback. Who works for who?
-      </p>
-      <p className="p--large">
+      </blockquote>
+      <blockquote>
         Create system of components.
-        It's better to build from blocks than from clay.
-      </p>
-      <p className="p--large">
+        <i> Blocks</i> are more predictable than <i>clay</i>.
+      </blockquote>
+      <blockquote>
         Make peculiar components from standardized sub-components to achieve
         familiarity.
-      </p>
+      </blockquote>
     </section>
   )
 }
