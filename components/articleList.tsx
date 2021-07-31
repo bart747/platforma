@@ -13,9 +13,9 @@ function ArticleList () {
           </Link>
         </li>
         <li>
-          <Link href='/planck'>
+          <Link href='/future'>
             <a>
-              Max Planck on New Ideas and Creative Work
+              Kinda Predictig the Future: the Internet and the Lindy Effect
             </a>
           </Link>
         </li>
@@ -29,7 +29,7 @@ function ArticleList () {
         <li>
           <Link href='/complexity'>
             <a>
-              We&apos;re so Bad at Judging Complexity, yet We Like to Predict
+              We're so Bad at Judging Complexity, yet We Like to Predict
               (Getting Perspective on Complexity)
             </a>
           </Link>
@@ -38,13 +38,6 @@ function ArticleList () {
           <Link href='/henry-ford-for-makers'>
             <a>
               Henry Ford for Makers: Quotes on Design
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/ui-coins'>
-            <a>
-              Contrast in UI Design
             </a>
           </Link>
         </li>

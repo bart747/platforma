@@ -10,7 +10,7 @@ function article ({ title, content }) {
 }
 
 export async function getStaticProps ({ params }) {
-  const res: any = await fetch(`http://localhost:3000/mdcontent/${params.mdslug}.md`)
+  const res: any = await fetch(`https://raw.githubusercontent.com/bart747/notebook/main/articles/${params.mdslug}.md`)
   const content: string = await res.text()
   const title: string = content.split('\n')[0].replace('# ', '')
 
@@ -26,12 +26,10 @@ export async function getStaticPaths () {
   return {
     paths: [
       { params: { mdslug: 'complexity' } },
-      { params: { mdslug: 'complexity2'} },
       { params: { mdslug: 'crowd' } },
       { params: { mdslug: 'resilient-ui' } },
-      { params: { mdslug: 'ui-coins' } },
-      { params: { mdslug: 'henry-ford-for-makers' } },
-      { params: { mdslug: 'planck' } },
+      { params: { mdslug: 'future' } },
+      { params: { mdslug: 'henry-ford-for-makers' } }
     ],
     fallback: false
   }
