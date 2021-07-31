@@ -57,10 +57,13 @@ header {
 }
 
 a {
-  color: $text-color;
+  color: $blue;
   text-decoration: underline;
-  text-decoration-style: line;
-  text-decoration-color: $red;
+  text-decoration-style: dotted;
+}
+
+a:hover {
+  color: $red;
 }
 
 a svg {
@@ -79,10 +82,6 @@ nav {
 nav a {
   text-decoration: none;
   letter-spacing: -0.02em;
-}
-
-nav svg {
-  background-color: #921;
 }
 
 br {
@@ -104,9 +103,12 @@ br {
 }
 
 .article-list li a {
-  color: $text-color;
+  color: $blue;
   text-decoration: none;
-  margin-bottom: 2rem;
+  margin: 0 0 2rem;
+  &:hover {
+    color: $red;
+  }
 }
 
 .p--large {
