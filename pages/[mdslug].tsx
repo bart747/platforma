@@ -10,7 +10,8 @@ function article ({ title, content }) {
 }
 
 export async function getStaticProps ({ params }) {
-  const res: any = await fetch(`https://raw.githubusercontent.com/bart747/notebook/main/articles/${params.mdslug}.md`)
+  const fileName: string = `${params.mdslug}.md`
+  const res: any = await fetch(`https://raw.githubusercontent.com/bart747/notebook/main/articles/${fileName}`)
   const content: string = await res.text()
   const title: string = content.split('\n')[0].replace('# ', '')
 
