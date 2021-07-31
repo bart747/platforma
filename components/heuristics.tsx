@@ -1,4 +1,4 @@
-function Heuristics() {
+function Heuristics () {
   return (
     <section className="heuristics">
       <h2>Favorite Heuristics</h2>
@@ -18,5 +18,4 @@ function Heuristics() {
   )
 }
 
-export default Heuristics 
-
+export default Heuristics

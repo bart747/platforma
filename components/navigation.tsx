@@ -1,9 +1,9 @@
 function navigation () {
-  const symbol: string = "f(⌂)" 
+  const symbol: string = 'f(⌂)'
   return (
     <nav>
       <a href="/">
-        <pre> { symbol } </pre>
+        <code> { symbol } </code>
       </a>
     </nav>
 

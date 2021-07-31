@@ -1,7 +1,7 @@
 import styles from './footer.module.scss'
 
-function Footer() {
- return (
+function Footer () {
+  return (
    <footer className={ styles.footer }>
      <p>
        ©2016-2021 Bartosz Wieczorek.<br />
@@ -11,7 +11,7 @@ function Footer() {
        </a> — please attribute and link back.
      </p>
    </footer>
- )
+  )
 }
 
 export default Footer
