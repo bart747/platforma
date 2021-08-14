@@ -6,7 +6,7 @@ import Heuristics from '../components/heuristics'
 import ArticleList from '../components/articleList'
 import GetEmail from '../util/getEmail'
 
-export default function Home () {
+export default function Home() {
   useEffect(() => {
     return GetEmail('email')
   })
@@ -18,17 +18,16 @@ export default function Home () {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="page-wrapper">
-
+      <div className="container mx-auto max-w-5xl">
         <Navigation />
         <header>
-          <h1>Making Visually Rich, <br></br> yet Fast Web UIs</h1>
+          <h1 className="text-5xl mt-20 mb-20">Making Visually Rich, <br></br> yet Fast Web UIs</h1>
         </header>
-        <main className="main content-wrapper">
-          <ArticleList/>
-          <Heuristics/>
+        <main className="max-w-2xl">
+          <ArticleList />
+          <Heuristics />
         </main>
-        <div id="email" className="email-link"></div>
+        <span id="email" className=""></span>
         <Footer />
       </div>
     </div>

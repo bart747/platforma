@@ -1,9 +1,13 @@
-@import 'config';
+$brand-color: #aa9922; //#ff3322;
+$text-color: #333333;
+$red: #ee2233;
+$brown: #993311;
+$blue: #0033cc;
 
 html {
   color: $text-color;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.5;
 }
 
@@ -72,14 +76,6 @@ a svg {
   text-decoration: none;
 }
 
-.email-link a {
-  text-decoration: none;
-}
-
-.email-link svg {
-  vertical-align: top;
-}
-
 nav {
   font-weight: 600; 
 }
@@ -102,34 +98,6 @@ pre,
 code {
   font-family: "IBM Plex Mono", monospace;
   font-size: 15px;
-}
-
-.page-wrapper {
-  max-width: 60rem;
-  margin: 0 auto;
-}
-
-.article-list ul {
-  list-style: none;
-  padding: 0;
-}
-
-.article-list li {
-  margin-bottom: 0.75rem;
-}
-
-.article-list li a {
-  color: $blue;
-  text-decoration: none;
-  margin: 0 0 2rem;
-  &:hover {
-    color: $brown;
-  }
-}
-
-.p--large {
-  font-size: 1.125rem; 
-  margin: 2rem 0;
 }
 
 section {

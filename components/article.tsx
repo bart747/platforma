@@ -8,19 +8,19 @@ interface ArticleProps {
   content: string;
 }
 
-function ArticlePage (props: ArticleProps) {
+function ArticlePage(props: ArticleProps) {
   return (
-    <div className="page-wrapper">
+    <div className="container mx-auto max-w-5xl">
       <Head>
-        <title>{ props.title }</title>
+        <title>{props.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />
-        <article>
-          <ReactMarkdown allowDangerousHtml={true}>
-            { props.content }
-          </ReactMarkdown>
-        </article>
+      <article className="container max-w-lg">
+        <ReactMarkdown allowDangerousHtml={true}>
+          {props.content}
+        </ReactMarkdown>
+      </article>
       <Footer />
     </div>
   )

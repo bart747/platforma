@@ -1,47 +1,28 @@
 import Link from 'next/link'
 
-function ArticleList () {
+const articles = [
+  { slug: 'crowd', title: 'Old Programming Wisdom Beats Crowdsourced Advice' },
+  { slug: 'future', title: 'Kinda Predictig the Future: the Internet and the Lindy Effect' },
+  { slug: 'resilient-ui', title: '5 Notes on How to Design a Resilient UI' },
+  { slug: 'complexity', title: "We're so Bad at Judging Complexity, yet We Like to Predict (Getting Perspective on Complexity)" },
+  { slug: 'henry-ford-for-makers', title: 'Henry Ford for Makers: Quotes on Design' }
+]
+
+const listItems = articles.map((article) =>
+  <li key={article.slug} className="mb-4">
+    <Link href={article.slug}>
+      <a className="no-underline">
+        {article.title}
+      </a>
+    </Link>
+  </li>
+)
+
+function ArticleList() {
   return (
     <section className="article-list">
-      <h2>Articles:</h2>
-      <ul>
-      <li>
-          <Link href='/crowd'>
-            <a>
-              Old Programming Wisdom Beats Crowdsourced Advice
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/future'>
-            <a>
-              Kinda Predictig the Future: the Internet and the Lindy Effect
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/resilient-ui'>
-            <a>
-              5 Notes on How to Design a Resilient UI
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/complexity'>
-            <a>
-              We're so Bad at Judging Complexity, yet We Like to Predict
-              (Getting Perspective on Complexity)
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/henry-ford-for-makers'>
-            <a>
-              Henry Ford for Makers: Quotes on Design
-            </a>
-          </Link>
-        </li>
-      </ul>
+      <h2 className="text-base">Articles:</h2>
+      <ul>{listItems}</ul>
     </section>
   )
 }
