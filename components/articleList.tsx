@@ -18,7 +18,7 @@ const listItems = articles.map((article) =>
   </li>
 )
 
-function ArticleList() {
+function ArticleList () {
   return (
     <section className="article-list">
       <h2 className="text-base">Articles:</h2>

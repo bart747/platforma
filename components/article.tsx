@@ -8,7 +8,7 @@ interface ArticleProps {
   content: string;
 }
 
-function ArticlePage(props: ArticleProps) {
+function ArticlePage (props: ArticleProps) {
   return (
     <div className="container mx-auto max-w-5xl">
       <Head>

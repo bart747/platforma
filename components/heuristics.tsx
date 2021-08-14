@@ -1,4 +1,4 @@
-function Heuristics() {
+function Heuristics () {
   return (
     <section className="heuristics">
       <h2 className="text-base">Favorite Heuristics</h2>

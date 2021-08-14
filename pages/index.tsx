@@ -6,7 +6,7 @@ import Heuristics from '../components/heuristics'
 import ArticleList from '../components/articleList'
 import GetEmail from '../util/getEmail'
 
-export default function Home() {
+export default function Home () {
   useEffect(() => {
     return GetEmail('email')
   })
