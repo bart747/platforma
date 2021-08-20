@@ -8,20 +8,24 @@ const articles = [
   { slug: 'henry-ford-for-makers', title: 'Henry Ford for Makers: Quotes on Design' }
 ]
 
-const listItems = articles.map((article) =>
+const svgIcon: string = `
+  <svg xmlns="http://www.w3.org/2000/svg" 
+    width="19" height="19"
+    viewBox="0 0 24 24"
+    fill="none" stroke="#0033cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    className="feather feather-arrow-right inline">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+  </svg>
+`
+
+const listItems = articles.map( (article) =>
   <li key={article.slug} className="mb-4">
     <Link href={article.slug}>
       <a className="no-underline font-normal">
         {article.title}
         &ensp;
-        <svg xmlns="http://www.w3.org/2000/svg" 
-          width="19" height="19"
-          viewBox="0 0 24 24"
-          fill="none" stroke="#0033cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-          className="feather feather-arrow-right inline">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
+        <span className="inline-block align-middle" dangerouslySetInnerHTML={{__html: svgIcon }}></span>
       </a>
     </Link>
   </li>

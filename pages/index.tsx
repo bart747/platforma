@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 import Navigation from '../components/navigation'
+import HeaderHome from '../components/headerHome'
 import Footer from '../components/footer'
 import Heuristics from '../components/heuristics'
 import ArticleList from '../components/articleList'
@@ -21,9 +22,7 @@ export default function Home () {
 
       <div className="container mx-auto max-w-5xl">
         <Navigation />
-        <header>
-          <h1 className="text-5xl mt-20 mb-20">Making Visually Rich, <br></br> yet Fast Web UIs</h1>
-        </header>
+        <HeaderHome />
         <main className="max-w-xl">
           <ArticleList />
           <Heuristics />
