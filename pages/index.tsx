@@ -5,7 +5,7 @@ import HeaderHome from '../components/headerHome'
 import Footer from '../components/footer'
 import Heuristics from '../components/heuristics'
 import ArticleList from '../components/articleList'
-import ToolList from '../components/toolList'
+// import ToolList from '../components/toolList'
 import GetEmail from '../util/getEmail'
 
 export default function Home () {
@@ -26,7 +26,7 @@ export default function Home () {
         <main className="max-w-xl">
           <ArticleList />
           <Heuristics />
-          <ToolList />
+
         </main>
         <span id="email" className=""></span>
         <Footer />
