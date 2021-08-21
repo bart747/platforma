@@ -21,31 +21,23 @@ function HeaderHome () {
 
         @keyframes flicker {
           from {
-            opacity: 1;
-            color: blue; 
+            opacity: 0.5;
+            color: #00f; 
           }
 
-          33% {
+          25% {
             opacity: 0.7;
-            color: blue; 
+            color: #00f; 
           }
 
           60% {
             opacity: 1;
-            color: #121; 
+            color: #f0f; 
           }
-          
+
           65% {
-            opacity: 1;
-          }
-
-          75% {
-            opacity: 0.8;
-          }
-
-          80% {
-            opacity: 1;
-            color: green;
+            opacity: 0.7;
+            color: #f0f; 
           }
 
           to {
