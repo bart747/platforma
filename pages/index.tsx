@@ -28,7 +28,7 @@ export default function Home () {
           <Heuristics />
 
         </main>
-        <span id="email" className=""></span>
+        <span id="email" className="align-top"></span>
         <Footer />
       </div>
     </div>

@@ -1,0 +1,48 @@
+.header_background {
+  background-image: url("../public/glitch.svg");
+  background-position: top;
+  background-size: 33%;
+  box-shadow: inset 0 -1px 10px #777;
+}
+
+.header_content {
+  animation-name: glitch;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-timing-function: ease-in;
+  box-shadow: inset 0 0 100px #252;
+}
+
+@keyframes glitch {
+  from {
+    opacity: 1;
+    color: #f0f; 
+  }
+
+  10% {
+    opacity: 0.7;
+    color: #f0f; 
+    font-style: italic;
+  }
+
+  25% {
+    opacity: 1;
+    color: currentColor;
+    font-style: normal;
+  }
+
+  80% {
+    opacity: 1;
+    color: currentColor;
+    font-style: normal;
+  }
+
+  90% {
+    opacity: 0.7;
+    color: #f0f; 
+  }
+  
+  to {
+    opacity: 1
+  }
+}
