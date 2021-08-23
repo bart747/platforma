@@ -13,7 +13,7 @@ function navigation () {
   `
 
   return (
-    <nav>
+    <nav className="mb-4">
       <Link href="/">
         <a>
           <div className="font-mono" dangerouslySetInnerHTML={{__html: symbol}}></div>

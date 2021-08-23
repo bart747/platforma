@@ -1,8 +1,6 @@
-import styles from './footer.module.scss'
-
 function Footer () {
   return (
-   <footer className={ styles.footer }>
+   <footer className="mt-8 text-sm">
      <p>
        ©2016-2021 Bartosz Wieczorek.<br />
        Some rights reserved — <a
