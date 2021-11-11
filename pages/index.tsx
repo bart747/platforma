@@ -21,14 +21,13 @@ export default function Home () {
       </Head>
 
       <div className="container mx-auto max-w-5xl">
-        <Navigation />
         <HeaderHome />
-        <main className="max-w-xl">
+        <main className="max-w-xl mx-auto">
           <ArticleList />
           <Heuristics />
 
+          <span id="email" className="align-top"></span>
         </main>
-        <span id="email" className="align-top"></span>
         <Footer />
       </div>
     </div>

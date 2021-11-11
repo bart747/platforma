@@ -1,15 +1,14 @@
-/*! primer.scss custom styles */
+/*! primer.css custom styles */
 
-$background-color: #fffbf5;
-$brand-color: #aa9922; //#ff3322;
-$text-color: #222;
-$red: #ee2233;
-$brown: #993311;
-$blue: #0033cc;
-$gray: #999;
+:root {
+  --ivory: #fffbf5;
+  --ink-black: #222;
+  --gray: #999;
+  --blue: #03c;
+}
 
 html {
-  color: $text-color;
+  color: var(--ink-black);
   font-family: "Roboto", sans-serif;
   font-size: 19px;
   line-height: 1.5;
@@ -19,7 +18,7 @@ html {
 }
 
 body {
-  background-color: $background-color;
+  background-color: var(--ivory);
   margin: 0;
   padding: 1rem; 
 }
@@ -32,28 +31,28 @@ h4 {
   margin: 2rem 0 1rem;
 }
 
-// base line height is 1.5rem or 27px (18 * 1.5).
+/* base line height is 1.5rem or 27px (18 * 1.5). */
 
-h1 { // 2.5 * 1.2 = 3rem | 2 * 4.5 = 9rem | 3rem + 9rem = 12rem = 8 * 1.5
+h1 { /* // 2.5 * 1.2 = 3rem | 2 * 4.5 = 9rem | 3rem + 9rem = 12rem = 8 * 1.5 */
   font-size: 2.5rem;
   line-height: 1.2;
   margin: 4.5rem 0;
   
 }
 
-h2 { // 1.6 * 1.3 ≈ 2rem | 2rem + 3 + 1 = 6rem = 4 * 1.5 
+h2 { /* 1.6 * 1.3 ≈ 2rem | 2rem + 3 + 1 = 6rem = 4 * 1.5 */
   font-size: 1.6rem;
   line-height: 1.3;
   margin: 3rem 0 1rem;
 }
 
-h3 { //  1.25 * 1.4 = 1.75rem | 2.25rem + 2.75 + 1 = 6rem = 4 * 1.5
+h3 { /*  1.25 * 1.4 = 1.75rem | 2.25rem + 2.75 + 1 = 6rem = 4 * 1.5 */
   font-size: 1.25rem;
   line-height: 1.4;
   margin: 2.75rem 0 1rem
 }
 
-h4 { // 1 * 1.5 = 1.5rem | 1.5rem + 2 + 1 = 4.5rem = 3 * 1.5
+h4 { /* 1 * 1.5 = 1.5rem | 1.5rem + 2 + 1 = 4.5rem = 3 * 1.5 */
   font-size: 1rem;
   line-height: 1.5;
   margin: 2rem 0 1rem;
@@ -68,16 +67,16 @@ ul {
 }
 
 a {
-  color: $text-color;
+  color: var(--ink-black);
   font-weight: bold;
   text-decoration: underline;
   text-decoration-style: line;
-  text-decoration-color: $gray;
+  text-decoration-color: var(--gray);
   text-decoration-thickness: 2px;
 }
 
 a:hover {
-  color: $blue;
+  color: var(--blue);
 }
 
 a svg {
@@ -122,6 +121,18 @@ blockquote {
 img,
 svg {
   vertical-align: middle;
+}
+
+.bg-image-rocks-water {
+  background-image: url("../public/bailey-mahon-unsplash.jpg");
+}
+
+.bg-image-water {
+  background-image: url("../public/ave-calvar-unsplash.jpg");
+}
+
+.bg-image-trees {
+  background-image: url("../public/malena-gonzalez-serena-unsplash-t.jpg");
 }
 
 .video-wrapper {

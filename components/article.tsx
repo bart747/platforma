@@ -10,7 +10,7 @@ interface ArticleProps {
 
 function ArticlePage (props: ArticleProps) {
   return (
-    <div className="container mx-auto max-w-5xl">
+    <div className="container mx-auto max-w-xl">
       <Head>
         <title>{props.title}</title>
         <link rel="icon" href="/favicon.ico" />
