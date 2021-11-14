@@ -4,7 +4,7 @@ function HeaderHome () {
   return (
     <header className="bg-image-trees bg-cover rounded-full w-64 h-64 mx-auto blur-lg">
       <div className="rounded-full w-64 h-64">
-        <h1 className="font-bold text-red-500 text-center text-3xl m-0 py-28">UI∴X</h1>
+        <h1 className="font-bold text-red-500 text-center text-3xl m-0 py-28">I∴X</h1>
       </div>
     </header>
   )
