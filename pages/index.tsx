@@ -16,7 +16,7 @@ export default function Home () {
   return (
     <div>
       <Head>
-        <title>UI Design and Developement</title>
+        <title>UI Design and Development</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
