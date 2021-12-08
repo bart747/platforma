@@ -46,12 +46,6 @@ let b = 8
 </code></pre>
 `
 
-  const snippetFormatted = snippet
-    .replace(/[{}();]/g, "<span style='color:#665'>$&</span>")
-    .replace(/return|const|let|=>/g, "<span style='color:#832'>$&</span>")
-    .replace(/(\/\/)[\s\S].*/g, "<span style='color:#665'>$&</span>")
-
-
   return (
     <div>
       <Head>
@@ -63,8 +57,7 @@ let b = 8
         <Navigation />
         <main className="max-w-xl mx-auto">
           <h1 className="text-center">
-            Design System
-            <span className="text-gray-600">
+            Design System <span className="text-gray-500">
               Used to Create This Place
             </span>
           </h1>
@@ -74,29 +67,29 @@ let b = 8
               Color Palette
             </h3>
             <div className="m-auto text-center">
-              <svg className="fill-ink-black inline-block m-1"
+              <svg className="fill-ink-black inline-block m-2"
                 width="80" height="80">
                 <rect width="80" height="80"/>
               </svg>
 
-              <svg className="fill-brand-ivory inline-block m-1"
+              <svg className="fill-brand-ivory inline-block m-2"
                 width="80" height="80">
                 <rect width="80" height="80"
                       stroke="currentColor" stroke-width="1"/>
               </svg>
 
-              <svg className="fill-brand-blue inline-block m-1"
+              <svg className="fill-brand-blue inline-block m-2"
                 width="80" height="80">
                 <rect width="80" height="80"/>
               </svg>
-              <svg className="fill-brand-sand inline-block m-1"
+              <svg className="fill-brand-maroon inline-block m-2"
                 width="80" height="80">
                 <rect width="80" height="80"/>
               </svg>
             </div>
             <br />
             <p className="text-center">
-              <span className="text-center text-brand-sand font-bold">§</span>
+              <span className="text-center text-brand-maroon font-bold">§</span>
               Text to show
               <span className="text-brand-blue"> you </span>
               some

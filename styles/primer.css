@@ -39,46 +39,50 @@
 
 :root {
   --ivory: #fffbf5;
-  --ink-black: #222;
+  --black: #222;
   --blue: #04e;
-  --sand: #ca7;
+  --maroon: #732;
   --gray: #999;
 }
 
 .text-brand-blue {
-  color: #04e;
+  color: var(--blue);
 }
 
 .fill-brand-blue {
-  fill: #04e;
+  fill: var(--blue);
 }
 
-.text-brand-sand {
-  color: #ca7;
+.text-brand-maroon {
+  color: var(--maroon);
 }
 
-.fill-brand-sand {
-  fill: #ca7;
+.fill-brand-maroon{
+  fill: var(--maroon);
 }
 
 .text-brand-ivory {
-  color: #fffbf5;
+  color: var(--ivory);
 }
 
 .fill-brand-ivory {;
-  fill: #fffbf5;
+  fill: var(--ivory);
 }
 
 .text-ink-black {
-  color: #222;
+  color: var(--black);
 }
 
 .fill-ink-black {
-  fill: #222;
+  fill: var(--black);
+}
+
+.bg-ink-black {
+  background-color: var(--black);
 }
 
 html {
-  color: var(--ink-black);
+  color: var(--black);
   font-family: "Roboto", sans-serif;
   font-size: 19px;
   line-height: 1.5;
@@ -158,12 +162,14 @@ a:hover {
 }
 
 button {
-  background-color: var(--sand);
   padding: 1rem 1rem;
-  border-radius: 4px;
+  border: 1px solid black;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 2px #999;
 }
 
-button:hover {
+button:hover,
+button:active {
   color: var(--blue);
 }
 
