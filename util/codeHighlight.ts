@@ -5,11 +5,11 @@ function highlightCode(snippet: string): string {
 
   return(
     snippet
-      .replace(/[{}();]/g,
+      .replace(/[{}();]/g,                            // brackets, semicolons
                `<span class='${dimColor}'}>$&</span>`)
-      .replace(/return|const|let|=>/g,
+      .replace(/return|const|let|if|else|switch|=>/g, // major statements
                `<span class='${highlightColor}'>$&</span>`)
-      .replace(/(\/\/)[\s\S].*/g,
+      .replace(/(\/\/)[\s\S].*/g,                     // comments
                `<span class='${dimColor}'>$&</span>`)
   )
 }

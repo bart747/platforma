@@ -30,7 +30,8 @@ export async function getStaticPaths () {
       { params: { mdslug: 'crowd' } },
       { params: { mdslug: 'resilient-ui' } },
       { params: { mdslug: 'future' } },
-      { params: { mdslug: 'henry-ford-for-makers' } }
+      { params: { mdslug: 'henry-ford-for-makers' } },
+      { params: { mdslug: 'fonts-linux' } }
     ],
     fallback: false
   }

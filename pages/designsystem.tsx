@@ -75,7 +75,7 @@ let b = 8
               <svg className="fill-brand-ivory inline-block m-2"
                 width="80" height="80">
                 <rect width="80" height="80"
-                      stroke="currentColor" stroke-width="1"/>
+                      stroke="currentColor" strokeWidth="1"/>
               </svg>
 
               <svg className="fill-brand-blue inline-block m-2"
