@@ -22,11 +22,6 @@ export default function Home () {
 
       <div className="container mx-auto max-w-5xl">
         <HeaderImage/>
-        <h1 className="text-center font-normal text-gray-600 text-2xl">
-          modular<br />
-          clear<br />
-          interfaces
-        </h1>
         <main className="max-w-xl mx-auto">
           <ArticleList />
           <Heuristics />
