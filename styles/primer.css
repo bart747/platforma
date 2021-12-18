@@ -98,9 +98,19 @@ body {
 }
 
 pre,
-code {
+pre code {
   font-family: "IBM Plex Mono", monospace;
   font-size: 15px;
+  overflow-x: scroll;
+}
+
+pre {
+  margin: 1.5em 0;
+}
+
+code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8em;
 }
 
 h1,
@@ -203,6 +213,11 @@ ol li {
   margin-left: 1rem;
 }
 
+ul li {
+  list-style: disc;
+  margin-left: 1rem;
+}
+
 br {
   height: 1.5rem;
 }
@@ -225,18 +240,6 @@ figcaption {
 img,
 svg {
   vertical-align: middle;
-}
-
-.bg-image-rocks-water {
-  background-image: url("/bailey-mahon-unsplash.jpg");
-}
-
-.bg-image-water {
-  background-image: url("/ave-calvar-unsplash.jpg");
-}
-
-.bg-image-trees {
-  background-image: url("/malena-gonzalez-serena-unsplash-t.jpg");
 }
 
 .video-wrapper {
