@@ -1,11 +1,12 @@
 import Link from 'next/link'
 
 const articles = [
+  { slug: 'fonts-linux', title: 'Font Settings in Linux Distros Suck – Write Your Own font.conf' },
   { slug: 'crowd', title: 'Old Programming Wisdom Beats Crowdsourced Advice' },
   { slug: 'future', title: 'Kinda Predicting the Future: the Internet and the Lindy Effect' },
   { slug: 'resilient-ui', title: '5 Notes on How to Design a Resilient UI' },
   { slug: 'complexity', title: "We're so Bad at Judging Complexity, yet We Like to Predict (Getting Perspective on Complexity)" },
-  { slug: 'henry-ford-for-makers', title: 'Henry Ford for Makers: Quotes on Design' }
+  { slug: 'henry-ford-for-makers', title: 'Henry Ford for Makers: Quotes on Design' },
 ]
 
 const svgIcon: string = `
