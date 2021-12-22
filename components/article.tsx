@@ -1,14 +1,14 @@
-import Head from 'next/head'
-import Footer from '../components/footer'
-import ReactMarkdown from 'react-markdown'
-import Navigation from '../components/navigation'
+import Head from "next/head";
+import Footer from "../components/footer";
+import ReactMarkdown from "react-markdown";
+import Navigation from "../components/navigation";
 
 interface ArticleProps {
   title: string;
   content: string;
 }
 
-function ArticlePage (props: ArticleProps) {
+function ArticlePage(props: ArticleProps) {
   return (
     <div className="container mx-auto max-w-xl">
       <Head>
@@ -17,13 +17,11 @@ function ArticlePage (props: ArticleProps) {
       </Head>
       <Navigation />
       <article className="container max-w-lg">
-        <ReactMarkdown allowDangerousHtml={true}>
-          {props.content}
-        </ReactMarkdown>
+        <ReactMarkdown allowDangerousHtml={true}>{props.content}</ReactMarkdown>
       </article>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default ArticlePage
+export default ArticlePage;
