@@ -1,20 +1,28 @@
 function highlightCode(snippet: string): string {
+  const baseColor: string = "text-amber-700";
   const dimColor: string = "text-gray-500";
   const highlightColor: string = "text-brand-maroon";
 
-  return snippet
+  const formattedCode = snippet
     .replace(
-      /[{}();]/g, // brackets, semicolons
+      /[{}()<>;]/g, // brackets, semicolons
       `<span class='${dimColor}'}>$&</span>`
     )
     .replace(
-      /return|const|let|if|else|switch|=>/g, // major statements
+      / return | const | let | if | else | switch |=>/g, // major statements
       `<span class='${highlightColor}'>$&</span>`
     )
     .replace(
       /(\/\/)[\s\S].*/g, // comments
       `<span class='${dimColor}'>$&</span>`
+    )
+    .replace(
+      /\`\`\`/g,
+      ''
     );
+  
+  
+  return `<pre><code class='${baseColor}'> ${formattedCode} </code></pre>`
 }
 
 export default highlightCode;

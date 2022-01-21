@@ -16,7 +16,7 @@ export default function DesignSystem () {
   })
 
   const snippet: string = `
-<pre><code>
+\`\`\`  
 module.exports = {
   webpack: function(config) {
     config.module.rules.push(
@@ -28,6 +28,8 @@ module.exports = {
     return config
   }
 }
+
+<h1>Bla Bla</h1>
 
 function round (number: number, precision: number): number {
   return (
@@ -42,8 +44,7 @@ function round (number: number, precision: number): number {
 const a = 5
 let b = 8
 (a, b) => a + b
-
-</code></pre>
+\`\`\`
 `
 
   return (

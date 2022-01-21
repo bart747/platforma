@@ -1,4 +1,5 @@
 import ArticlePage from '../components/article'
+import codeHighlight from '../util/codeHighlight'
 
 function article ({ title, content }) {
   return (
@@ -12,8 +13,14 @@ function article ({ title, content }) {
 export async function getStaticProps ({ params }) {
   const fileName: string = `${params.mdslug}.md`
   const res: any = await fetch(`https://raw.githubusercontent.com/bart747/notebook/main/articles/${fileName}`)
-  const content: string = await res.text()
-  const title: string = content.split('\n')[0].replace('# ', '')
+  const text: string = await res.text()
+
+  function replacer(match: string) {
+    return codeHighlight(match)
+  }
+
+  const content = text.replace(/\`\`\`([\s\S]*?)\`\`\`/g, replacer)
+  const title: string = text.split('\n')[0].replace('# ', '')
 
   return {
     props: {

@@ -102,7 +102,7 @@ pre code {
   color: var(--black);
   font-family: "IBM Plex Mono", monospace;
   font-size: 15px;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 pre {
