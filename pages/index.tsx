@@ -7,10 +7,17 @@ import Heuristics from '../components/heuristics'
 import ArticleList from '../components/articleList'
 import ToolList from '../components/toolList'
 import GetEmail from '../util/getEmail'
+import onScroll from '../util/onScroll'
 
-export default function Home () {
+export default function Home() {
   useEffect(() => {
-    return GetEmail('email')
+    GetEmail('email')
+  })
+
+  function logger(msg: string) { console.log(msg) }
+
+  useEffect(() => {
+    onScroll(300, () => logger('hi'))
   })
 
   return (
@@ -21,7 +28,7 @@ export default function Home () {
       </Head>
 
       <div className="container mx-auto max-w-5xl">
-        <HeaderImage/>
+        <HeaderImage />
         <main className="max-w-xl mx-auto">
           <ArticleList />
           <Heuristics />
