@@ -15,11 +15,7 @@ export async function getStaticProps ({ params }) {
   const res: any = await fetch(`https://raw.githubusercontent.com/bart747/notebook/main/articles/${fileName}`)
   const text: string = await res.text()
 
-  function replacer(match: string) {
-    return codeHighlight(match)
-  }
-
-  const content = text.replace(/\`\`\`([\s\S]*?)\`\`\`/g, replacer)
+  const content = text.replace(/\`\`\`([\s\S]*?)\`\`\`/g, codeHighlight)
   const title: string = text.split('\n')[0].replace('# ', '')
 
   return {
