@@ -1,9 +1,17 @@
-function onScroll(startingPoint: number, f: (                                                                                                             ) => any) {
-  let positionRecord:number = 0
-  let actionWasActive: boolean = false
-  let positionMargin: number = 50
+// example: onScroll("testID", -300, () => logger("hi"))
+// negative fineTune means earlier start
 
-  function action(scrollPosition) {
+function onScroll(elementID: string, fineTune: number, f: () => any): void {
+
+  const el = document.getElementById(elementID);
+  const pos = el.offsetTop;
+  const startingPoint = pos + fineTune
+  
+  let positionRecord: number = 0
+  let actionWasActive: boolean = false
+  let positionMargin: number = 10
+
+  function action(scrollPosition): void {
     if (
       scrollPosition > startingPoint
       &&
@@ -14,11 +22,11 @@ function onScroll(startingPoint: number, f: (                                   
     }
   }
 
-  document.addEventListener('scroll', function (e) {
+  document.addEventListener('scroll', function (): void {
     positionRecord = window.scrollY;
 
     if (!actionWasActive) {
-      window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function (): void {
         action(positionRecord);
       });
     }

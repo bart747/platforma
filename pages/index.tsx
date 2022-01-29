@@ -14,12 +14,6 @@ export default function Home() {
     GetEmail('email')
   })
 
-  function logger(msg: string) { console.log(msg) }
-
-  useEffect(() => {
-    onScroll(300, () => logger('hi'))
-  })
-
   return (
     <div>
       <Head>
@@ -29,7 +23,7 @@ export default function Home() {
 
       <div className="container mx-auto max-w-5xl">
         <HeaderImage />
-        <main className="max-w-xl mx-auto">
+        <main id="main" className="max-w-xl mx-auto">
           <ArticleList />
           <Heuristics />
           <ToolList />
