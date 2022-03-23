@@ -5,12 +5,20 @@ function highlightCode(snippet: string): string {
 
   const formattedCode = snippet
     .replace(
-      /[{}()<>;]/g, // brackets, semicolons
-      `<span class='${dimColor}'}>$&</span>`
+      /[{}();<>]/g, // brackets, semicolons
+      `<span class='${dimColor}'>$&</span>`
     )
     .replace(
-      / return | const | let | if | else | switch |=>/g, // major statements
+      /--|!--/g, // brackets, semicolons
+      `<span class='${dimColor}'>$&</span>`
+    )
+    .replace(
+      / return | const | let | if(?=\s\{) | else(?=\s\{) | switch(?=\() /g, // major statements
       `<span class='${highlightColor}'>$&</span>`
+    )
+    .replace(
+      /\=\<span class=\'\S*\'\>\>\<\/span\>/g, // arrow function symbol
+      `<span class='${highlightColor}'>=></span>`
     )
     .replace(
       /(\/\/)[\s\S].*/g, // comments
