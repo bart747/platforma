@@ -21,7 +21,7 @@ const svgIcon: string = `
 `
 
 const listItems = articles.map( (article) =>
-  <li key={article.slug} className="mb-4">
+  <li key={article.slug} className="mb-4 list-none ml-0">
     <Link href={article.slug}>
       <a className="no-underline font-normal">
         {article.title}

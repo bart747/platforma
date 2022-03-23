@@ -39,7 +39,7 @@
 
 :root {
   --ivory: #fffbf5;
-  --black: #222;
+  --black: #333;
   --blue: #04e;
   --maroon: #732;
   --gray: #999;
@@ -65,7 +65,7 @@
   color: var(--ivory);
 }
 
-.fill-brand-ivory {;
+.fill-brand-ivory {
   fill: var(--ivory);
 }
 
