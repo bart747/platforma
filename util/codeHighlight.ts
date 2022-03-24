@@ -9,10 +9,6 @@ function highlightCode(snippet: string): string {
       `<span class='${dimColor}'>$&</span>`
     )
     .replace(
-      /--|!--/g, // brackets, semicolons
-      `<span class='${dimColor}'>$&</span>`
-    )
-    .replace(
       / return | const | let | if(?=\s\{) | else(?=\s\{) | switch(?=\() /g, // major statements
       `<span class='${highlightColor}'>$&</span>`
     )
@@ -21,7 +17,11 @@ function highlightCode(snippet: string): string {
       `<span class='${highlightColor}'>=></span>`
     )
     .replace(
-      /(\/\/)[\s\S].*/g, // comments
+      /(\/\/)[\s\S].*/g, // comments - JS style
+      `<span class='${dimColor}'>$&</span>`
+    )
+    .replace(
+      /--|!--/g, // comments - HTML style
       `<span class='${dimColor}'>$&</span>`
     )
     .replace(
