@@ -28,8 +28,6 @@ function highlightCode(snippet: string): string {
       /\`\`\`/g,
       ''
     );
-  
-  
   return `<pre><code class='${baseColor}'> ${formattedCode} </code></pre>`
 }
 
