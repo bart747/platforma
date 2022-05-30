@@ -33,7 +33,7 @@ module.exports = {
 
 function round (number: number, precision: number): number {
   return (
-    <span class="code-marker">Math.round</span>(
+    Math.round(
       number * Math.pow(10, precision)
     ) / Math.pow(10, precision);
   )
