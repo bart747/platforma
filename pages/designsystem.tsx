@@ -47,6 +47,8 @@ let b = 8
 \`\`\`
 `
 
+const htmlSnippet = {__html: HighlightCode(snippet)}
+
   return (
     <div>
       <Head>
@@ -180,9 +182,7 @@ let b = 8
                            font-mono font-normal text-gray-500">
               Code Block
             </h3>
-            <ReactMarkdown allowDangerousHtml={true}>
-              { HighlightCode(snippet) }
-            </ReactMarkdown>
+            <div dangerouslySetInnerHTML={ htmlSnippet } />
           </section>
           <section>
             <h3 className="text-center mt-20
