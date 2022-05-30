@@ -7,7 +7,6 @@ import Footer from '../components/footer'
 import ArticleList from '../components/articleList'
 import ToolList from '../components/toolList'
 import GetEmail from '../util/getEmail'
-import ReactMarkdown from 'react-markdown'
 import HighlightCode from '../util/codeHighlight'
 
 export default function DesignSystem () {
