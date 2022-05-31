@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import { start } from 'repl';
 
-class GCalc extends Component {
+class GCalc extends Component<{}, { value: string[] }> {
   constructor(props) {
     super(props)
-    this.state = {input: []}
+    this.state = {value: []}
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({input: event.target.value.split(",")});
-    setTimeout(()=> {console.log(this.state.input)}, 100)
+    this.setState({value: event.target.value.split(",")})
   }
 
   FmtGrowth(numbers: any[]) :any {
@@ -50,7 +49,7 @@ class GCalc extends Component {
           <div className="text-base mt-6 mb-1 ">add comma separated numbers:</div>
           <input
             className="text-lg font-mono text-blue-800 border-2 border-gray-600 px-1.5 py-1 min-w-full"
-            value={this.state.input} onChange={this.handleChange}
+            value={this.state.value} onChange={this.handleChange}
             placeholder="110, 120, 130, 140, 150"
           />
         </label>
@@ -58,15 +57,15 @@ class GCalc extends Component {
         <section className='font-mono'>
           <h3 className="text-sm mt-4 mb-1 ">Compound Annual (CAGR):</h3>
           <div className="transition-all text-xl text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5">
-            { this.FmtGrowth(this.state.input).compound }
+            { this.FmtGrowth(this.state.value).compound }
           </div>
           <h3 className="text-sm mt-4 mb-1 ">Beginning to End:</h3>
           <div className="text-xl text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5">
-            { this.FmtGrowth(this.state.input).startToEnd  }
+            { this.FmtGrowth(this.state.value).startToEnd  }
           </div>
           <h3 className="text-sm mt-4 mb-1 ">Y/Y:</h3>
           <div className=" transition-all text-md text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2">
-            { this.FmtGrowth(this.state.input).yy }
+            { this.FmtGrowth(this.state.value).yy }
           </div>
         </section>
       </div>

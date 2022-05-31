@@ -2,7 +2,7 @@ function Footer () {
   return (
     <footer className="m-8 text-sm mx-auto max-w-xl">
       <div>
-        ©2016-2021 Bartosz Wieczorek.
+        ©2016-2022 Bartosz Wieczorek.
       </div>
       <div>
         Some rights reserved — <a
