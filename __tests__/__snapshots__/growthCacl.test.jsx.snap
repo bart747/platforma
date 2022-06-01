@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component matching to snapshot 1`] = `
+<div>
+  <form>
+    <label>
+      <div
+        className="text-base mt-6 mb-1 "
+      >
+        add comma separated numbers:
+      </div>
+      <input
+        className="text-lg font-mono border-2 border-gray-600 px-1.5 py-1 min-w-full rounded-sm"
+        onChange={[Function]}
+        placeholder="110, 120, 130, 140, 150"
+        value={Array []}
+      />
+    </label>
+  </form>
+  <section
+    className="mt-6"
+  >
+    <h3
+      className="text-base mt-4 mb-1"
+    >
+      Compound Annual Growth Rate (CAGR):
+    </h3>
+    <p
+      className="mb-1 text-sm font-sans text-gray-600"
+    >
+      With modifications for negative numbers.
+    </p>
+    <p
+      className="mb-2 text-sm font-sans text-gray-600"
+    >
+      Does not work when the list is crossing the zero
+      <br />
+      (i.e. stars with negative and ends wih positive values).
+    </p>
+    <div
+      className="transition-all text-xl text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5"
+    />
+    <h3
+      className="text-base mt-4 mb-1 "
+    >
+      Beginning to End:
+    </h3>
+    <div
+      className="text-xl text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5"
+    />
+    <h3
+      className="text-base mt-4 mb-1 "
+    >
+      Y/Y:
+    </h3>
+    <div
+      className=" text-md text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2"
+    />
+  </section>
+</div>
+`;
