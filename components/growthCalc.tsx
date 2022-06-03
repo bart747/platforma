@@ -50,22 +50,28 @@ function growthYY(arr: number[]) :number[] {
   return acc;
 }
 
+interface OutputArr {
+  compound: string[];
+  startToEnd: string[]; 
+  yearToYear: any;
+}
+
 class GrowthCalc extends Component<{}, { value: string[] }> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {value: []};
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange(event: any) {
     this.setState({value: event.target.value.split(/[\,\;\|\/]/)});
   }
 
-  FmtOutput(inputArr: any[]) :any {
+  FmtOutput(inputArr: string[]) :OutputArr {
     const arrStr: string[] = inputArr.slice();
 
     if (arrStr.length === 0 || arrStr[1] === '' || arrStr[1] === ' ' ) {
-      return 0;
+      return {compound: [], startToEnd: [], yearToYear: {__html: []} };
     }
     if (arrStr[arrStr.length - 1] === '' || arrStr[arrStr.length - 1] === ' ') {
       arrStr.pop();
@@ -99,8 +105,6 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
       }
     });
     console.log(yearToYear)
- 
-
 
     return {compound: compound, startToEnd: startToEnd, yearToYear: {__html: yearToYear} } 
   }
