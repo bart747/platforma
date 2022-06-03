@@ -54,7 +54,13 @@ exports[`component matching to snapshot 1`] = `
     <div
       className="font-mono text-md bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2"
     >
-      <div />
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": Array [],
+          }
+        }
+      />
     </div>
   </section>
 </div>
