@@ -33,12 +33,10 @@ exports[`component matching to snapshot 1`] = `
     <p
       className="mb-2 text-sm font-sans text-gray-600"
     >
-      Does not work when the list is crossing the zero
-      <br />
-      (i.e. stars with negative and ends wih positive values).
+      Does not work in many cases where the list is crossing the zero.
     </p>
     <div
-      className="transition-all text-xl text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5"
+      className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5"
     />
     <h3
       className="text-base mt-4 mb-1 "
@@ -46,7 +44,7 @@ exports[`component matching to snapshot 1`] = `
       Beginning to End:
     </h3>
     <div
-      className="text-xl text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5"
+      className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5"
     />
     <h3
       className="text-base mt-4 mb-1 "
@@ -54,8 +52,10 @@ exports[`component matching to snapshot 1`] = `
       Y/Y:
     </h3>
     <div
-      className=" text-md text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2"
-    />
+      className="font-mono text-md bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2"
+    >
+      <div />
+    </div>
   </section>
 </div>
 `;

@@ -6,12 +6,14 @@ function growthCompound(begin: number, final: number, years:number): number {
   if ( begin > 0 && final > 0 ) {
     calc = ((final / begin) ** (1 / years)) - 1;
   }
-
   else if ( begin < 0 && final < 0 ) {
     calc = -1 * ((Math.abs(final) / Math.abs(begin)) ** (1 / years) - 1);
   }
 
-/* works only in some cases
+/* !works only in some cases!
+   When the list is crossing the zero, it  will often return incorrect values;
+   there's also no percentage of zero.
+
   else if ( begin > 0 && final < 0 ) { 
     calc = -1 * (((Math.abs(final) + begin) / begin) ** (1 / years));
   }
@@ -24,7 +26,6 @@ function growthCompound(begin: number, final: number, years:number): number {
   else {
     return NaN;
   }
-
   return calc * 100;
 }
 
@@ -56,7 +57,7 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value.split(",")});
+    this.setState({value: event.target.value.split(/[\,\;\|\/]/)});
   }
 
   FmtOutput(inputArr: any[]) :any {
@@ -89,9 +90,18 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
       startToEnd = startToEnd.toFixed(3) + "%";
     }
 
-    const yearToYear = growthYY(arrNum).map((el) => el.toFixed(3) + "%, ");
+    const yearToYear = growthYY(arrNum).map((el, i) => {
+      if (i%2 === 0 ){
+        return `<span class='text-green-800'> ${el.toFixed(3)}%</span>`
+      } else {
+        return `<span class='text-orange-900'> ${el.toFixed(3)}%</span>`
+      }
+    });
+    console.log(yearToYear)
+ 
 
-    return {compound: compound, startToEnd: startToEnd, yearToYear: yearToYear } 
+
+    return {compound: compound, startToEnd: startToEnd, yearToYear: {__html: yearToYear} } 
   }
 
   render () {
@@ -115,19 +125,18 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
             With modifications for negative numbers.
           </p>
           <p className='mb-2 text-sm font-sans text-gray-600'>
-            Does not work when the list is crossing the zero<br />
-            (i.e. stars with negative and ends wih positive values).
+            Does not work in many cases where the list is crossing the zero.
           </p>
-          <div className="transition-all text-xl text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5">
+          <div className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5">
             { this.FmtOutput(this.state.value).compound }
           </div>
           <h3 className="text-base mt-4 mb-1 ">Beginning to End:</h3>
-          <div className="text-xl text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5">
+          <div className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5">
             { this.FmtOutput(this.state.value).startToEnd  }
           </div>
           <h3 className="text-base mt-4 mb-1 ">Y/Y:</h3>
-          <div className=" text-md text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2">
-            { this.FmtOutput(this.state.value).yearToYear }
+          <div className="font-mono text-md bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2">
+            <div dangerouslySetInnerHTML={ this.FmtOutput(this.state.value).yearToYear } />
           </div>
         </section>
 
