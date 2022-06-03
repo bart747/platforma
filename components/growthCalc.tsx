@@ -10,9 +10,10 @@ function growthCompound(begin: number, final: number, years:number): number {
     calc = -1 * ((Math.abs(final) / Math.abs(begin)) ** (1 / years) - 1);
   }
 
-/* !works only in some cases!
-   When the list is crossing the zero, it  will often return incorrect values;
-   there's also no percentage of zero.
+/*// !works only in some cases!
+  // When the list is crossing the zero, it  will often return incorrect values;
+  // more than two values is usually problematic;
+  // and there's no percentage of zero.
 
   else if ( begin > 0 && final < 0 ) { 
     calc = -1 * (((Math.abs(final) + begin) / begin) ** (1 / years));
