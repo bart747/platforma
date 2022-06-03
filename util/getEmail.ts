@@ -14,7 +14,7 @@ function getEmail(id: string) {
 </svg>
  `
   const myEmailAlias: string = 'hello.bartosz'
-  const placement = document.getElementById(id)
+  const placement: any = document.getElementById(id)
   placement.innerHTML = `
 <a class="no-underline" href="mailto:${myEmailAlias}@gmail.com">${svg}${myEmailAlias}@gmail.com</a>
   `
