@@ -161,7 +161,7 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
             <div dangerouslySetInnerHTML={ this.FmtOutput(this.state.value).yearToYear } />
           </div>
           <h3 className="text-base mt-4 mb-1 ">Average of Y/Y</h3>
-          <div className="font-mono text-md text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2">
+          <div className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2">
             { this.FmtOutput(this.state.value).average  }
           </div>
         </section>
