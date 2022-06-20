@@ -25,19 +25,11 @@ exports[`component matching to snapshot 1`] = `
     >
       Compound Annual Growth Rate (CAGR):
     </h3>
-    <p
-      className="mb-1 text-sm font-sans text-gray-600"
-    >
-      With modifications for negative numbers.
-    </p>
-    <p
-      className="mb-2 text-sm font-sans text-gray-600"
-    >
-      Does not work in many cases where the list is crossing the zero.
-    </p>
     <div
       className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5"
-    />
+    >
+      
+    </div>
     <h3
       className="text-base mt-4 mb-1 "
     >
@@ -45,7 +37,9 @@ exports[`component matching to snapshot 1`] = `
     </h3>
     <div
       className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5"
-    />
+    >
+      
+    </div>
     <h3
       className="text-base mt-4 mb-1 "
     >
@@ -61,6 +55,16 @@ exports[`component matching to snapshot 1`] = `
           }
         }
       />
+    </div>
+    <h3
+      className="text-base mt-4 mb-1 "
+    >
+      Average of Y/Y
+    </h3>
+    <div
+      className="font-mono text-md text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2"
+    >
+      
     </div>
   </section>
 </div>

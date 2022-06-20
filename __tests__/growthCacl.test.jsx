@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer';
-import GrowthCalc, { growthCompound, growthStartToEnd, growthYY } from '../components/growthCalc';
+import GrowthCalc, { growthCompound, growthStartToEnd, growthYY, growthAverage } from '../components/growthCalc';
 
 it('component matching to snapshot', () => {
   const component = renderer.create(
@@ -35,4 +35,11 @@ test("'Year to Year' growth rates should be calculated correctly for different v
   expect(growthYY(arr2)).toStrictEqual([50, 50, 50]); 
   expect(growthYY(arr3)).toStrictEqual([25, 25]);
   expect(growthYY([1, 2, 5])).toStrictEqual([100, 150]);
+});
+
+test("'Average of Year to Year' growth rates should be calculated correctly for different values", () => {
+  expect(growthAverage([0, 0, 0])).toBe(0);
+  expect(growthAverage([-200, 400])).toBe(100);
+  expect(growthAverage([10, 10, 10])).toBe(10);
+  expect(growthAverage([10, 0, 40])).toBeCloseTo(16.6666);
 });

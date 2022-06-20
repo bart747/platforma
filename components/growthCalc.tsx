@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 function growthCompound(begin: number, final: number, years:number): number {
   let calc: number;
 
-  if ( begin > 0 && final > 0 ) {
+  if ( begin > 0 && final >= 0 ) {
     calc = ((final / begin) ** (1 / years)) - 1;
   }
   else if ( begin < 0 && final < 0 ) {
@@ -50,10 +50,17 @@ function growthYY(arr: number[]) :number[] {
   return acc;
 }
 
-interface OutputArr {
-  compound: string[];
-  startToEnd: string[]; 
-  yearToYear: any;
+function growthAverage(arr: number[]): number {
+  return arr.reduce((previous, current) => previous + current) / arr.length;
+} 
+
+interface OutputObj {
+  compound: string;
+  startToEnd: string; 
+  yearToYear: {
+    __html: any
+  }
+  average: string;
 }
 
 class GrowthCalc extends Component<{}, { value: string[] }> {
@@ -67,11 +74,11 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
     this.setState({value: event.target.value.split(/[\,\;\|\/]/)});
   }
 
-  FmtOutput(inputArr: string[]) :OutputArr {
+  FmtOutput(inputArr: string[]) :OutputObj {
     const arrStr: string[] = inputArr.slice();
 
     if (arrStr.length === 0 || arrStr[1] === '' || arrStr[1] === ' ' ) {
-      return {compound: [], startToEnd: [], yearToYear: {__html: []} };
+      return {compound: '', startToEnd: '', yearToYear: {__html: [] }, average: '' };
     }
     if (arrStr[arrStr.length - 1] === '' || arrStr[arrStr.length - 1] === ' ') {
       arrStr.pop();
@@ -97,16 +104,32 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
       startToEnd = startToEnd.toFixed(3) + "%";
     }
 
-    const yearToYear = growthYY(arrNum).map((el, i) => {
-      if (i%2 === 0 ){
+    const yearToYearNum = growthYY(arrNum);
+
+    const yearToYearStr = yearToYearNum.map((el, i) => {
+      if (isNaN(el)) {
+        return "unsupported input"
+      }
+      else if (i%2 === 0 ){
         return `<span class='text-green-800'> ${el.toFixed(3)}%</span>`
       } else {
         return `<span class='text-orange-900'> ${el.toFixed(3)}%</span>`
       }
     });
-    console.log(yearToYear)
+    
+    let averageNum: number = 0
+    let averageStr: string = ''
+    if ( yearToYearNum.length > 1 ) { 
+      averageNum = growthAverage(yearToYearNum)
+      console.log(averageNum)
+    }
+    if ( isNaN(averageNum) ) { 
+      averageStr = "unsupported input"
+    } else {
+      averageStr = averageNum.toFixed(3) + "%";
+    }
 
-    return {compound: compound, startToEnd: startToEnd, yearToYear: {__html: yearToYear} } 
+    return {compound: compound, startToEnd: startToEnd, yearToYear: {__html: yearToYearStr}, average: averageStr } 
   }
 
   render () {
@@ -126,12 +149,6 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
 
         <section className='mt-6'>
           <h3 className="text-base mt-4 mb-1">Compound Annual Growth Rate (CAGR):</h3>
-          <p className='mb-1 text-sm font-sans text-gray-600'>
-            With modifications for negative numbers.
-          </p>
-          <p className='mb-2 text-sm font-sans text-gray-600'>
-            Does not work in many cases where the list is crossing the zero.
-          </p>
           <div className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5">
             { this.FmtOutput(this.state.value).compound }
           </div>
@@ -143,6 +160,10 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
           <div className="font-mono text-md bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2">
             <div dangerouslySetInnerHTML={ this.FmtOutput(this.state.value).yearToYear } />
           </div>
+          <h3 className="text-base mt-4 mb-1 ">Average of Y/Y</h3>
+          <div className="font-mono text-md text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2">
+            { this.FmtOutput(this.state.value).average  }
+          </div>
         </section>
 
       </div>
@@ -151,4 +172,4 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
 }
 
 export default GrowthCalc
-export { growthCompound, growthStartToEnd, growthYY }
+export { growthCompound, growthStartToEnd, growthYY, growthAverage }
