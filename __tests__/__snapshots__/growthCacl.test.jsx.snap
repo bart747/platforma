@@ -62,7 +62,7 @@ exports[`component matching to snapshot 1`] = `
       Average of Y/Y
     </h3>
     <div
-      className="font-mono text-md text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2"
+      className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2"
     >
       
     </div>

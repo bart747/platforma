@@ -1,58 +1,5 @@
 import React, { Component } from 'react'
-
-function growthCompound(begin: number, final: number, years:number): number {
-  let calc: number;
-
-  if ( begin > 0 && final >= 0 ) {
-    calc = ((final / begin) ** (1 / years)) - 1;
-  }
-  else if ( begin < 0 && final < 0 ) {
-    calc = -1 * ((Math.abs(final) / Math.abs(begin)) ** (1 / years) - 1);
-  }
-
-/*// !works only in some cases!
-  // When the list is crossing the zero, it  will often return incorrect values;
-  // more than two values is usually problematic;
-  // and there's no percentage of zero.
-
-  else if ( begin > 0 && final < 0 ) { 
-    calc = -1 * (((Math.abs(final) + begin) / begin) ** (1 / years));
-  }
-
-  else if ( begin < 0 && final > 0 ) { 
-    calc = ((final + 2 * Math.abs(begin)) / Math.abs(begin)) ** (1 / years) - 1;
-  }
-*/
-
-  else {
-    return NaN;
-  }
-  return calc * 100;
-}
-
-function growthStartToEnd(begin: number, final: number): number {
-  if (begin < 0) {
-    return -1 * (((final - begin) / begin) * 100);
-  } 
-  return ((final - begin) / begin) * 100;
-}
-
-function growthYY(arr: number[]) :number[] {
-  let acc = []
-  for (let i = 0; i < arr.length - 1; i+=1) {
-    let current = arr[i];
-    let calc = ((arr[i + 1] - current) / current) * 100;
-    if (current < 0) {
-      calc = calc * -1;
-    }
-    acc.push(calc);
-  }
-  return acc;
-}
-
-function growthAverage(arr: number[]): number {
-  return arr.reduce((previous, current) => previous + current) / arr.length;
-} 
+import { GrowthCompound, GrowthStartToEnd, GrowthYY, GrowthAverage } from '../util/growthCalc'
 
 interface OutputObj {
   compound: string;
@@ -85,28 +32,27 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
     }
 
     const arrNum =  arrStr.map((el) => Number(el)) ;
-
     const years = arrNum.length - 1;
     const begin: number = arrNum[0];
     const final: number = arrNum[arrNum.length - 1];
 
-    let compound: any = growthCompound(begin, final, years);
+    let compound: any = GrowthCompound(begin, final, years);
     if (isNaN(compound)) {
       compound = "unsupported input";
     } else {
       compound = compound.toFixed(3) + "%";
     }
 
-    let startToEnd: any = growthStartToEnd(begin, final);
+    let startToEnd: any = GrowthStartToEnd(begin, final);
     if (isNaN(startToEnd)) {
       startToEnd = "unsupported input";
     } else {
       startToEnd = startToEnd.toFixed(3) + "%";
     }
 
-    const yearToYearNum = growthYY(arrNum);
+    const yearToYearNum: number[] = GrowthYY(arrNum);
 
-    const yearToYearStr = yearToYearNum.map((el, i) => {
+    const yearToYear: string[] = yearToYearNum.map((el, i) => {
       if (isNaN(el)) {
         return "unsupported input"
       }
@@ -118,18 +64,17 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
     });
     
     let averageNum: number = 0
-    let averageStr: string = ''
+    let average: string = ''
     if ( yearToYearNum.length > 1 ) { 
-      averageNum = growthAverage(yearToYearNum)
-      console.log(averageNum)
+      averageNum = GrowthAverage(yearToYearNum)
     }
     if ( isNaN(averageNum) ) { 
-      averageStr = "unsupported input"
+      average = "unsupported input"
     } else {
-      averageStr = averageNum.toFixed(3) + "%";
+      average = averageNum.toFixed(3) + "%";
     }
 
-    return {compound: compound, startToEnd: startToEnd, yearToYear: {__html: yearToYearStr}, average: averageStr } 
+    return {compound: compound, startToEnd: startToEnd, yearToYear: {__html: yearToYear}, average: average } 
   }
 
   render () {
@@ -156,13 +101,13 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
           <div className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-1.5">
             { this.FmtOutput(this.state.value).startToEnd  }
           </div>
-          <h3 className="text-base mt-4 mb-1 ">Y/Y:</h3>
-          <div className="font-mono text-md bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2">
-            <div dangerouslySetInnerHTML={ this.FmtOutput(this.state.value).yearToYear } />
-          </div>
-          <h3 className="text-base mt-4 mb-1 ">Average of Y/Y</h3>
+          <h3 className="text-base mt-4 mb-1 ">Average of Y/Y:</h3>
           <div className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2">
             { this.FmtOutput(this.state.value).average  }
+          </div>
+          <h3 className="text-base mt-4 mb-1 ">Y/Y List:</h3>
+          <div className="font-mono text-md bg-amber-100 inline-block min-h-[2.5rem] min-w-[17rem] px-1.5 py-2">
+            <div dangerouslySetInnerHTML={ this.FmtOutput(this.state.value).yearToYear } />
           </div>
         </section>
 
@@ -172,4 +117,3 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
 }
 
 export default GrowthCalc
-export { growthCompound, growthStartToEnd, growthYY, growthAverage }
