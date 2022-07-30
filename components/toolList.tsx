@@ -166,7 +166,7 @@ const tools = [
 ]
 
 const listItems = tools.map((tool) =>
-  <li key={tool.name} className="mb-4 mr-1.5 inline-block">
+  <li key={tool.name} className="mb-4 mr-4 ml-0 inline-block">
     <span dangerouslySetInnerHTML={{__html: tool.icon }}></span>
   </li>
 )
