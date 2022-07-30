@@ -77,7 +77,7 @@ const tools = [
         </g>
       </g>
       <use xlink:href="#svgstar"/>
-      <use xlink:href="#base" opacity="0.85"/>
+      <use xlink:href="#base" opacity="1"/>
       <use xlink:href="#SVG"/>
 
     </svg>`

@@ -5,6 +5,7 @@ import Link from 'next/link'
 const articles = [
   { slug: 'fonts-linux',
     title: 'Font Settings in Linux Distros Suck – Write Your Own font.conf', 
+    excerpt: `There are good, free, and open-source typefaces that blend better in the web context than many default choices.`,
     icon: `
       <svg width="19" height="19" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M13.5 6L10 18.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -15,6 +16,9 @@ const articles = [
   },
   { slug: 'crowd',
     title: 'Old Programming Wisdom Beats Crowdsourced Advice',
+    excerpt: `
+    An average set of methods of the top 50% of professionals is a way different thing
+    than what you get by analyzing how the top 10% operates.`,
     icon: `
       <svg width="19" height="19" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 21V7C12 5.89543 12.8954 5 14 5H21.4C21.7314 5 22 5.26863 22 5.6V18.7143" stroke="currentColor"   stroke-linecap="round"/>
@@ -28,6 +32,9 @@ const articles = [
   },
   { slug: 'future',
     title: 'Kinda Predicting the Future: the Internet and the Lindy Effect' ,
+    excerpt: `
+      No one knows the future, but there are some pretty clear patterns worth exploring.
+      One of them is human nature and Lindy Effect. Powerful things when combined.`,
     icon: `
       <svg width="19" height="19" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M9 2L15 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -38,6 +45,10 @@ const articles = [
   },
   { slug: 'resilient-ui',
     title: '5 Notes on How to Design a Resilient UI',
+    excerpt: `
+      ...It brings us to the problem of editing an already working thing. In the wild.
+      It happens all the time. Don't think you can predict the future.
+      You need to design your software with ease of modification in mind.`,
     icon: `
       <svg width="19" height="19" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M8 14L16 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -49,6 +60,8 @@ const articles = [
   },
   { slug: 'complexity',
     title: "We're so Bad at Judging Complexity, yet We Like to Predict (Getting Perspective on Complexity)",
+    excerpt: `
+      Living in a bubble, the unavoidable one, makes us misjudge what are the most complex things we have to face.`,
     icon: `
       <svg width="19" height="19" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="2" y="21" width="7" height="5" rx="0.6" transform="rotate(-90 2 21)" stroke="currentColor" stroke-width="1.5"/>
@@ -61,6 +74,8 @@ const articles = [
   },
   { slug: 'henry-ford-for-makers',
     title: 'Henry Ford for Makers: Quotes on Design',
+    excerpt: `
+      “Nearly everything that we make is much more complex than it needs to be”`,
     icon: `
       <svg width="19" height="19" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M3 20.2895V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V15C21 16.1046 20.1046 17 19 17H7.96125C7.35368 17 6.77906 17.2762 6.39951 17.7506L4.06852 20.6643C3.71421 21.1072 3 20.8567 3 20.2895Z" stroke="currentColor"  />
@@ -87,10 +102,13 @@ const listItems = articles.map( (article) =>
     <Link href={article.slug}>
       <a className="no-underline font-normal">
         <span className="inline-block align-middle text-yellow-600" dangerouslySetInnerHTML={{__html: article.icon }}></span>
-        &ensp;
-        {article.title}
-        &ensp;
-        <span className="inline-block align-middle" dangerouslySetInnerHTML={{__html: svgArrow }}></span>
+        <br />
+        <h3 className="text-base m-0">
+          {article.title}
+          &ensp;
+          <span className="inline-block align-middle " dangerouslySetInnerHTML={{__html: svgArrow }}></span>
+        </h3>
+        <p className="text-sm text-gray-600 mt-2">{article.excerpt}</p>
       </a>
     </Link>
   </li>
