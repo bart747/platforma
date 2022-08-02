@@ -2,26 +2,19 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
-  extends: [
-    "next/core-web-vitals",
-    'plugin:react/recommended',
-    'standard'
-  ],
-  parser: '@typescript-eslint/parser',
+  extends: ["next/core-web-vitals", "plugin:react/recommended", "standard"],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: 'module'
+    sourceType: "module",
   },
-  plugins: [
-    'react',
-    '@typescript-eslint'
-  ],
+  plugins: ["react", "@typescript-eslint"],
   rules: {
-    'react/react-in-jsx-scope': 'off'
-  }
-}
+    "react/react-in-jsx-scope": "off",
+  },
+};

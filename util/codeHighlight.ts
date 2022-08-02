@@ -24,11 +24,8 @@ function highlightCode(snippet: string): string {
       /--|!--/g, // comments - HTML style
       `<span class='${dimColor}'>$&</span>`
     )
-    .replace(
-      /\`\`\`/g,
-      ''
-    );
-  return `<pre><code class='${baseColor}'> ${formattedCode} </code></pre>`
+    .replace(/\`\`\`/g, "");
+  return `<pre><code class='${baseColor}'> ${formattedCode} </code></pre>`;
 }
 
 export default highlightCode;

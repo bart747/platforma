@@ -1,11 +1,9 @@
-import Head from 'next/head'
-import Navigation from '../components/navigation'
-import GrowthCalc from '../components/growthCalc'
-import Footer from '../components/footer'
-
+import Head from "next/head";
+import Navigation from "../components/navigation";
+import GrowthCalc from "../components/growthCalc";
+import Footer from "../components/footer";
 
 export default function Home() {
-
   return (
     <div>
       <Head>
@@ -22,6 +20,5 @@ export default function Home() {
         <Footer />
       </div>
     </div>
-  )
-
+  );
 }

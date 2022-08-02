@@ -1,18 +1,18 @@
-import Head from 'next/head'
-import { useEffect } from 'react'
+import Head from "next/head";
+import { useEffect } from "react";
 // import Navigation from '../components/navigation'
-import HeaderImage from '../components/headerImage'
-import Footer from '../components/footer'
-import Heuristics from '../components/heuristics'
-import ArticleList from '../components/articleList'
-import ToolList from '../components/toolList'
-import GetEmail from '../util/getEmail'
+import HeaderImage from "../components/headerImage";
+import Footer from "../components/footer";
+import Heuristics from "../components/heuristics";
+import ArticleList from "../components/articleList";
+import ToolList from "../components/toolList";
+import GetEmail from "../util/getEmail";
 // import onScroll from '../util/onScroll'
 
 export default function Home() {
   useEffect(() => {
-    GetEmail('email')
-  })
+    GetEmail("email");
+  });
 
   return (
     <div>
@@ -32,5 +32,5 @@ export default function Home() {
         <Footer />
       </div>
     </div>
-  )
+  );
 }
