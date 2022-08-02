@@ -108,15 +108,13 @@ let b = 8
             </div>
             <br />
             <p className="text-center">
-              <svg className="text-brand-maroon inline align-top" width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 14L16 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 10L10 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 18L12 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10 3H6C4.89543 3 4 3.89543 4 5V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V5C20 3.89543 19.1046 3 18 3H14.5M10 3V1M10 3V5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Text to show you some
-              <span className="text-brand-blue font-bold"> practical </span>
-              contrast.
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" className="align-middle inline text-brand-maroon" viewBox="0 0 16 16">
+              <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+              <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+              &ensp;
+              Text to show you some practical
+              <span className="text-brand-blue font-bold"> contrast</span>.
             </p>
           </section>
           <section>
