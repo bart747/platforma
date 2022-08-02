@@ -7,7 +7,7 @@ import Heuristics from '../components/heuristics'
 import ArticleList from '../components/articleList'
 import ToolList from '../components/toolList'
 import GetEmail from '../util/getEmail'
-import onScroll from '../util/onScroll'
+// import onScroll from '../util/onScroll'
 
 export default function Home() {
   useEffect(() => {

@@ -18,7 +18,7 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
   }
 
   handleChange(event: any) {
-    this.setState({value: event.target.value.split(/[\,\;\|\/]/)});
+    this.setState({value: event.target.value.split(/[,;|/]/)});
   }
 
   FmtOutput(inputArr: string[]) :OutputObj {

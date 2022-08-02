@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = async ( { params }: any ) => {
   const res: any = await fetch(`https://raw.githubusercontent.com/bart747/notebook/96309a512ab5459d6b9c09582f9734bda8c75d56/articles/${fileName}`)
   const text: string = await res.text()
 
-  const content = text.replace(/\`\`\`([\s\S]*?)\`\`\`/g, codeHighlight)
+  const content = text.replace(/```([\s\S]*?)```/g, codeHighlight)
   const title = text.split('\n')[0].replace('# ', '')
 
   return {
