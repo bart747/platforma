@@ -14,7 +14,7 @@ function article(props: ArticleProps) {
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const fileName: string = `${params.mdslug}.md`;
   const res: any = await fetch(
-    `https://raw.githubusercontent.com/bart747/notebook/96309a512ab5459d6b9c09582f9734bda8c75d56/articles/${fileName}`
+    `https://raw.githubusercontent.com/bart747/notebook/main/articles/${fileName}`
   );
   const text: string = await res.text();
 
