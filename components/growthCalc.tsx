@@ -49,13 +49,17 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
     let compound: any = GrowthCompound(begin, final, years);
     if (isNaN(compound)) {
       compound = "unsupported input";
-    } else {
+    } else if (compound === Infinity) {
+      compound = ` ∞`;
+    } else {  
       compound = compound.toFixed(3) + "%";
     }
 
     let startToEnd: any = GrowthStartToEnd(begin, final);
     if (isNaN(startToEnd)) {
       startToEnd = "unsupported input";
+    } else if (startToEnd === Infinity) {
+      startToEnd = ` ∞`;
     } else {
       startToEnd = startToEnd.toFixed(3) + "%";
     }
@@ -65,6 +69,8 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
     const yearToYear: string[] = yearToYearNum.map((el, i) => {
       if (isNaN(el)) {
         return "unsupported input";
+      } else if (el === Infinity) {
+        return ` ∞`;
       } else {
         return `<span class='text-green-800'> ${el.toFixed(3)}%</span>`;
       }
@@ -77,6 +83,8 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
     }
     if (isNaN(averageNum)) {
       average = "unsupported input";
+    } else if (averageNum === Infinity) {
+      average = ` ∞`;
     } else {
       average = averageNum.toFixed(3) + "%";
     }
