@@ -120,8 +120,8 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
           <CalcVis values={this.state.value}/>
         </section>
 
-        <section className="mt-6">
-          <h3 className="text-base mt-4 mb-1">
+        <section className="mt-2">
+          <h3 className="text-base mt-2 mb-1">
             Compound Annual Growth Rate (CAGR):
           </h3>
           <div className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-1.5">

@@ -1,32 +1,25 @@
-
 function dataVis(props) {
-  let data = [1]
+  let data = [1];
 
-  if (props.values.length > 1) { 
-    data = props.values
+  if (props.values.length > 1) {
+    data = props.values;
   }
 
-  const maxVal = data.reduce((a, b) => Math.max(a, b));
-  // console.log(maxVal)
+  const topMargin = 10;
+  const dataOnScale = fmtDataToScale100(data);
+   console.log(dataOnScale)
 
-  const minVal = data.reduce((a, b) => Math.min(a, b));
-  // console.log(minVal)
-
-  let scale = maxVal - minVal;
-
-  const topMargin = 10
-  const fmtDataToScale = data.map(n => (((( n - minVal) / scale) * 100) - 100) * -1)
-  console.log(fmtDataToScale)
-
-  const fmtDataToSvg = fmtDataToScale.map((n, i) => {
-    if (isNaN(n)) {
-      n = 1
-    }
+  const dataToSvg = dataOnScale.map((n, i) => {
     return (
-      <circle key={i} cx={i * 10 + 10} cy={n/5 + topMargin} r="2" fill="currentColor" />
-    )
-  
-  })
+      <circle
+        key={i}
+        cx={i * 10 + 10}
+        cy={n / 5 + topMargin}
+        r="2"
+        fill="currentColor"
+      />
+    );
+  });
 
   return (
     <div>
@@ -37,10 +30,21 @@ function dataVis(props) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-          {fmtDataToSvg}
+        {dataToSvg}
       </svg>
     </div>
   );
 }
 
+function fmtDataToScale100(data) {
+  const maxVal = data.reduce((a, b) => Math.max(a, b));
+  const minVal = data.reduce((a, b) => Math.min(a, b));
+  let scale = maxVal - minVal;
+  scale === 0 ? scale = 1 : scale = scale;
+  return data
+    .map(n => (((n - minVal) / scale) * 100 - 100) * -1)
+    .map(n => n === -0 ? 0 : n)
+}
+
 export default dataVis;
+export { fmtDataToScale100 };
