@@ -5,6 +5,7 @@ import {
   GrowthYY,
   GrowthAverage,
 } from "../util/growthCalc";
+import CalcVis from "./growthCalcVis.jsx"
 
 interface OutputObj {
   compound: string;
@@ -114,6 +115,10 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
             />
           </label>
         </form>
+
+        <section className="mt-2 mb-2">
+          <CalcVis values={this.state.value}/>
+        </section>
 
         <section className="mt-6">
           <h3 className="text-base mt-4 mb-1">
