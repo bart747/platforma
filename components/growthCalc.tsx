@@ -52,6 +52,8 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
       compound = "unsupported input";
     } else if (compound === Infinity) {
       compound = ` ∞`;
+    } else if (compound === -Infinity) {
+      compound = ` -∞`;
     } else {  
       compound = compound.toFixed(3) + "%";
     }
@@ -61,31 +63,40 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
       startToEnd = "unsupported input";
     } else if (startToEnd === Infinity) {
       startToEnd = ` ∞`;
+    } else if (startToEnd === -Infinity) {
+      startToEnd = ` -∞`;
     } else {
       startToEnd = startToEnd.toFixed(3) + "%";
     }
 
-    const yearToYearNum: number[] = GrowthYY(arrNum);
+    const yearToYearNums: number[] = GrowthYY(arrNum);
 
-    const yearToYear: string[] = yearToYearNum.map((el, i) => {
+    const yearToYear: string[] = yearToYearNums.map((el, i) => {
       if (isNaN(el)) {
         return "unsupported input";
       } else if (el === Infinity) {
         return ` ∞`;
+      } else if (el === -Infinity) {
+        return ` -∞`;
       } else {
-        return `<span class='text-green-800'> ${el.toFixed(3)}%</span>`;
+        return ` ${el.toFixed(3)}%`;
       }
     });
 
     let averageNum: number = 0;
     let average: string = "";
-    if (yearToYearNum.length > 1) {
-      averageNum = GrowthAverage(yearToYearNum);
+    if (yearToYearNums.length > 1) {
+      averageNum = GrowthAverage(yearToYearNums);
+    }
+    if (yearToYearNums.length === 1) {
+      averageNum = yearToYearNums[0];
     }
     if (isNaN(averageNum)) {
       average = "unsupported input";
     } else if (averageNum === Infinity) {
       average = ` ∞`;
+    } else if (averageNum === -Infinity) {
+      average = ` -∞`;
     } else {
       average = averageNum.toFixed(3) + "%";
     }
@@ -124,19 +135,19 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
           <h3 className="text-base mt-2 mb-1">
             Compound Annual Growth Rate (CAGR):
           </h3>
-          <div className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-1.5">
+          <div className="font-mono text-lg bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-1.5">
             {this.FmtOutput(this.state.value).compound}
           </div>
           <h3 className="text-base mt-4 mb-1 ">Beginning to End:</h3>
-          <div className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-1.5">
+          <div className="font-mono text-lg bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-1.5">
             {this.FmtOutput(this.state.value).startToEnd}
           </div>
           <h3 className="text-base mt-4 mb-1 ">Average of Y/Y:</h3>
-          <div className="font-mono text-lg text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-2">
+          <div className="font-mono text-lg bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-2">
             {this.FmtOutput(this.state.value).average}
           </div>
           <h3 className="text-base mt-4 mb-1 ">Y/Y List:</h3>
-          <div className="font-mono text-md text-green-800 bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-2">
+          <div className="font-mono text-md bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-2">
             <div
               dangerouslySetInnerHTML={
                 this.FmtOutput(this.state.value).yearToYear
