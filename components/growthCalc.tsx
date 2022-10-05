@@ -5,7 +5,7 @@ import {
   GrowthYY,
   GrowthAverage,
 } from "../util/growthCalc";
-import CalcVis from "./growthCalcVis.jsx";
+import CalcVis from "./growthCalcVis";
 
 interface OutputObj {
   compound: string;

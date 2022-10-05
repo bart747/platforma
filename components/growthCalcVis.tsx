@@ -1,7 +1,7 @@
-function dataVis(props) {
-  const data = props.values;
-  const topMargin = 10;
-  const dataToSvg = fmtDataToScale100(data).map((n, i) => {
+function dataVis(props: any) {
+  const data: string[] = props.values;
+  const topMargin: number = 10;
+  const dataToSvg = fmtDataToScale100(data).map((n: number, i: number) => {
     return (
       <circle
         key={i}
@@ -28,28 +28,28 @@ function dataVis(props) {
   );
 }
 
-function fmtDataToScale100(data) {
-  data = data.filter((n) => n !== "" && n !== " ");
+function fmtDataToScale100(data: string[]) {
+  let dataNum: number[] = data.filter((el) => el !== "" && el !== " ").map(el => Number(el));
 
   // empty arrays are not accepted
-  if (data.length < 1) {
-    data = [0];
+  if (dataNum.length < 1) {
+    dataNum = [0];
   }
 
-  const maxVal = data.reduce((a, b) => Math.max(a, b));
-  const minVal = data.reduce((a, b) => Math.min(a, b));
-  let scale = maxVal - minVal;
+  const maxVal: number = dataNum.reduce((a, b) => Math.max(a, b));
+  const minVal: number = dataNum.reduce((a, b) => Math.min(a, b));
+  let scale: number = maxVal - minVal;
   if (scale === 0) {
     scale = 1;
   }
 
   // make dots invisible by making the out of viewBox
   // when there's not enough input data
-  if (data.length <= 1) {
-    data = [200];
+  if (dataNum.length <= 1) {
+    dataNum = [200];
   }
 
-  return data
+  return dataNum
     .map((n) => (((n - minVal) / scale) * 100 - 100) * -1)
     .map((n) => (n === -0 ? 0 : n));
 }
