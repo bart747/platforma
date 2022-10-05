@@ -29,7 +29,6 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
 
   FmtOutput(inputArr: string[]): OutputObj {
     const arrStr: string[] = inputArr.filter((n) => n !== "" && n !== " ");
-    console.log(arrStr);
 
     if (arrStr.length <= 1 || arrStr[1] === "" || arrStr[1] === " ") {
       return {
