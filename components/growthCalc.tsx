@@ -31,7 +31,7 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
     const arrStr: string[] = inputArr.filter((n) => n !== "" && n !== " ");
     console.log(arrStr);
 
-    if (arrStr.length === 0 || arrStr[1] === "" || arrStr[1] === " ") {
+    if (arrStr.length <= 1 || arrStr[1] === "" || arrStr[1] === " ") {
       return {
         compound: "",
         startToEnd: "",
