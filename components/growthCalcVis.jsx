@@ -1,15 +1,7 @@
 function dataVis(props) {
-  let data = [1];
-
-  if (props.values.length > 1) {
-    data = props.values;
-  }
-
+  const data = props.values;
   const topMargin = 10;
-  const dataOnScale = fmtDataToScale100(data);
-   console.log(dataOnScale)
-
-  const dataToSvg = dataOnScale.map((n, i) => {
+  const dataToSvg = fmtDataToScale100(data).map((n, i) => {
     return (
       <circle
         key={i}
@@ -37,13 +29,29 @@ function dataVis(props) {
 }
 
 function fmtDataToScale100(data) {
+  data = data.filter((n) => n !== "" && n !== " ");
+
+  // empty arrays are not accepted
+  if (data.length < 1) {
+    data = [0];
+  }
+
   const maxVal = data.reduce((a, b) => Math.max(a, b));
   const minVal = data.reduce((a, b) => Math.min(a, b));
   let scale = maxVal - minVal;
-  scale === 0 ? scale = 1 : scale = scale;
+  if (scale === 0) {
+    scale = 1;
+  }
+
+  // make dots invisible by making the out of viewBox
+  // when there's not enough input data
+  if (data.length <= 1) {
+    data = [200];
+  }
+
   return data
-    .map(n => (((n - minVal) / scale) * 100 - 100) * -1)
-    .map(n => n === -0 ? 0 : n)
+    .map((n) => (((n - minVal) / scale) * 100 - 100) * -1)
+    .map((n) => (n === -0 ? 0 : n));
 }
 
 export default dataVis;

@@ -5,7 +5,7 @@ import {
   GrowthYY,
   GrowthAverage,
 } from "../util/growthCalc";
-import CalcVis from "./growthCalcVis.jsx"
+import CalcVis from "./growthCalcVis.jsx";
 
 interface OutputObj {
   compound: string;
@@ -28,7 +28,8 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
   }
 
   FmtOutput(inputArr: string[]): OutputObj {
-    const arrStr: string[] = inputArr.slice();
+    const arrStr: string[] = inputArr.filter((n) => n !== "" && n !== " ");
+    console.log(arrStr);
 
     if (arrStr.length === 0 || arrStr[1] === "" || arrStr[1] === " ") {
       return {
@@ -54,7 +55,7 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
       compound = ` ∞`;
     } else if (compound === -Infinity) {
       compound = ` -∞`;
-    } else {  
+    } else {
       compound = compound.toFixed(3) + "%";
     }
 
@@ -128,7 +129,7 @@ class GrowthCalc extends Component<{}, { value: string[] }> {
         </form>
 
         <section className="mt-2 mb-2">
-          <CalcVis values={this.state.value}/>
+          <CalcVis values={this.state.value} />
         </section>
 
         <section className="mt-2">
