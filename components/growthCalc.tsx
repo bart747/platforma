@@ -16,7 +16,7 @@ interface OutputObj {
   average: string;
 }
 
-class GrowthCalc extends Component<{}, { value: number[], out: any }> {
+class GrowthCalc extends Component<{}, { value: number[]; out: any }> {
   constructor(props: any) {
     super(props);
     this.state = { value: [], out: {} };
@@ -32,6 +32,21 @@ class GrowthCalc extends Component<{}, { value: number[], out: any }> {
     });
   }
 
+  fmtNum(n: number): string {
+    const precision: number = 3;
+    let result: string;
+    if (isNaN(n)) {
+      result = "unsupported input";
+    } else if (n === Infinity) {
+      result = ` ∞`;
+    } else if (n === -Infinity) {
+      result = ` -∞`;
+    } else {
+      result = n.toFixed(precision) + "%";
+    }
+    return result;
+  }
+
   compound(inputArr: number[]): string {
     if (inputArr.length <= 1) {
       return "";
@@ -41,16 +56,7 @@ class GrowthCalc extends Component<{}, { value: number[], out: any }> {
     const final: number = inputArr[inputArr.length - 1];
 
     let growth: number = GrowthCompound(begin, final, years);
-    let result: string;
-    if (isNaN(growth)) {
-      result = "unsupported input";
-    } else if (growth === Infinity) {
-      result = ` ∞`;
-    } else if (growth === -Infinity) {
-      result = ` -∞`;
-    } else {
-      result = growth.toFixed(3) + "%";
-    }
+    const result: string = this.fmtNum(growth);
     return result;
   }
 
@@ -62,61 +68,35 @@ class GrowthCalc extends Component<{}, { value: number[], out: any }> {
     const final: number = inputArr[inputArr.length - 1];
 
     let growth: number = GrowthStartToEnd(begin, final);
-    let result: string;
-    if (isNaN(growth)) {
-      result = "unsupported input";
-    } else if (growth === Infinity) {
-      result = ` ∞`;
-    } else if (growth === -Infinity) {
-      result = ` -∞`;
-    } else {
-      result = growth.toFixed(3) + "%";
-    }
-    return result;
-  }
-  
-  yearToYear(inputArr: number[]): any {
-    if (inputArr.length <= 1) {
-      return [];
-    }
-    const yearToYearArr: number[] = GrowthYY(inputArr);
-    const result: string[] = yearToYearArr.map(el => {
-      if (isNaN(el)) {
-        return "unsupported input";
-      } else if (el === Infinity) {
-        return ` ∞`;
-      } else if (el === -Infinity) {
-        return ` -∞`;
-      } else {
-        return ` ${el.toFixed(3)}%`;
-      }
-    });
+    let result: string = this.fmtNum(growth);
     return result;
   }
 
-  average(inputArr: number[]): any {
+  yearToYear(inputArr: number[]): string {
     if (inputArr.length <= 1) {
-      return [];
+      return "";
+    }
+    const yearToYearArr: number[] = GrowthYY(inputArr);
+    const result: string = yearToYearArr
+      .map((el) => this.fmtNum(el))
+      .join(", ");
+    return result;
+  }
+
+  average(inputArr: number[]): string {
+    if (inputArr.length <= 1) {
+      return "";
     }
     const yearToYearArr: number[] = GrowthYY(inputArr);
     let averageNum: number = 0;
-    let result: string = "";
     if (yearToYearArr.length > 1) {
       averageNum = GrowthAverage(yearToYearArr);
     }
     if (yearToYearArr.length === 1) {
       averageNum = yearToYearArr[0];
     }
-    if (isNaN(averageNum)) {
-      result = "unsupported input";
-    } else if (averageNum === Infinity) {
-      result = ` ∞`;
-    } else if (averageNum === -Infinity) {
-      result = ` -∞`;
-    } else {
-      result = averageNum.toFixed(3) + "%";
-    }
-    return result
+    const result: string = this.fmtNum(averageNum);
+    return result;
   }
 
   render() {
@@ -158,9 +138,9 @@ class GrowthCalc extends Component<{}, { value: number[], out: any }> {
           <h3 className="text-base mt-4 mb-1 ">Y/Y List:</h3>
           <div className="font-mono text-md bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-2">
             <div
-              dangerouslySetInnerHTML={
-                { __html: this.yearToYear(this.state.value) }
-              }
+              dangerouslySetInnerHTML={{
+                __html: this.yearToYear(this.state.value),
+              }}
             />
           </div>
         </section>
