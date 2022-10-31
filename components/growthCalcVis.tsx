@@ -16,7 +16,7 @@ function dataVis(props: any) {
         >
           <animate
             attributeName="r"
-            values="1;1.8;2.22"
+            values="1;1.8;2.2"
             dur="0.25s"
             repeatCount="1"
           />
