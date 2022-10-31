@@ -3,13 +3,25 @@ function dataVis(props: any) {
   const topMargin: number = 10;
   const dataToSvg = fmtDataToScale100(data).map((n: number, i: number) => {
     return (
-      <circle
+      <svg
+        fill="none"
         key={i}
-        cx={i * 10 + 10}
-        cy={n / 5 + topMargin}
-        r="2"
-        fill="currentColor"
-      />
+      >
+        <circle
+          key={i}
+          fill="currentColor"
+          r="2"
+          cx={i * 10 + 10}
+          cy={n / 5 + topMargin}
+        >
+          <animate
+            attributeName="fill-opacity"
+            values="0=0.1;0.25;1"
+            dur="0.25s"
+            repeatCount="1"
+          />
+        </circle>
+      </svg>
     );
   });
 
@@ -29,7 +41,9 @@ function dataVis(props: any) {
 }
 
 function fmtDataToScale100(data: string[]) {
-  let dataNum: number[] = data.filter((el) => el !== "" && el !== " ").map(el => Number(el));
+  let dataNum: number[] = data
+    .filter((el) => el !== "" && el !== " ")
+    .map((el) => Number(el));
 
   // empty arrays are not accepted
   if (dataNum.length < 1) {
