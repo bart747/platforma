@@ -15,9 +15,9 @@ function dataVis(props: any) {
           cy={n / 5 + topMargin}
         >
           <animate
-            attributeName="fill-opacity"
-            values="0=0.1;0.25;1"
-            dur="0.25s"
+            attributeName="r"
+            values="1;1.8;2.22"
+            dur="0.2s"
             repeatCount="1"
           />
         </circle>
