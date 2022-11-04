@@ -1,6 +1,6 @@
 
 .animation-symbol {
-  animation: spin-color 10s linear infinite;
+  animation: spin-color 7s linear infinite;
   background-color: #04e;
   height: 5rem;
   width: 5rem;
@@ -8,31 +8,16 @@
 
 @keyframes spin-color {
   from {
-    border-radius: 50% 50% 50% 50%;
-  }
-  10% {
-    border-radius: 50% 40% 50% 50%;
-  }
-  20% {
-    border-radius: 50% 50% 35% 50%;
-  }
-  30% {
-    border-radius: 50% 50% 50% 45%;
-  }
-  40% {
-    border-radius: 45% 50% 50% 50%;
-  }
-  50% {
     transform: rotate(0deg);
     border-radius: 50% 50% 50% 50%;
   }
-  60% {
+  20% {
     border-radius: 50% 35% 50% 50%;
   }
-  70% {
+  40% {
     border-radius: 50% 50% 50% 40%;
   }
-  80% {
+  60% {
     border-radius: 40% 50% 50% 50%;
   }
   to {
