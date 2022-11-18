@@ -101,18 +101,16 @@ const svgArrow: string = `
 
 const listItems = articles.map((article) => (
   <li key={article.slug} className="mb-8 list-none ml-0">
-    <Link href={article.slug}>
-      <a className="no-underline font-normal">
-        <h3 className="text-base m-0">
-          {article.title}
-          &ensp;
-          <span
-            className="inline-block align-middle text-brand-blue"
-            dangerouslySetInnerHTML={{ __html: svgArrow }}
-          ></span>
-        </h3>
-        <p className="text-sm text-gray-600 mt-2">{article.excerpt}</p>
-      </a>
+    <Link href={article.slug} className="no-underline font-normal">
+      <h3 className="text-base m-0">
+        {article.title}
+        &ensp;
+        <span
+          className="inline-block align-middle text-brand-blue"
+          dangerouslySetInnerHTML={{ __html: svgArrow }}
+        ></span>
+      </h3>
+      <p className="text-sm text-gray-600 mt-2">{article.excerpt}</p>
     </Link>
   </li>
 ));

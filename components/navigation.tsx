@@ -14,13 +14,11 @@ function navigation() {
 
   return (
     <nav className="mb-4">
-      <Link href="/">
-        <a title="homepage">
+      <Link href="/" title="homepage">
           <div
             className="font-mono text-sm"
             dangerouslySetInnerHTML={{ __html: symbol }}
           ></div>
-        </a>
       </Link>
     </nav>
   );
