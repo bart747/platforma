@@ -1,4 +1,3 @@
-import "tailwindcss/tailwind.css";
 import "../styles/primer.css";
 import "styles/animations.css";
 
