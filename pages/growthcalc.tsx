@@ -14,7 +14,7 @@ export default function Home() {
       <div className="container mx-auto max-w-5xl">
         <Navigation />
         <main>
-          <h1 className="my-12">Change/Growth Rate Calculator</h1>
+          <h1 className="mt-12 mb-6 text-xl">Change/Growth Rate Calculator</h1>
           <GrowthCalc />
         </main>
         <Footer />

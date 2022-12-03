@@ -24,6 +24,7 @@ class GrowthCalc extends Component<{}, { value: number[]; out: any }> {
   }
 
   handleChange(event: any) {
+    event.preventDefault();
     this.setState({
       value: event.target.value
         .split(/[,;|/]/)
@@ -31,6 +32,11 @@ class GrowthCalc extends Component<{}, { value: number[]; out: any }> {
         .map((el: any) => Number(el)),
     });
   }
+
+  handleSubmit(event: any) {
+    // prevent page refresh
+    event.preventDefault();
+  };
 
   fmtNum(n: number): string {
     const precision: number = 3;
@@ -102,13 +108,13 @@ class GrowthCalc extends Component<{}, { value: number[]; out: any }> {
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>
             <div className="text-base mt-6 mb-1 ">
               add comma separated numbers:
             </div>
             <input
-              className="text-lg font-mono caret-blue-600 border-2 border-gray-600 px-1.5 py-1 min-w-full rounded-sm"
+              className="text-xl font-mono caret-blue-600 focus:outline-none border-2 border-gray-400 p-2  min-w-full rounded-sm"
               onChange={this.handleChange}
               placeholder="110, 120, 130, 140, 150"
               autoFocus
@@ -116,27 +122,27 @@ class GrowthCalc extends Component<{}, { value: number[]; out: any }> {
           </label>
         </form>
 
-        <section className="mt-2 mb-2">
+        <section className="mt-2 mb-2 text-gray-500">
           <CalcVis values={this.state.value} />
         </section>
 
         <section className="mt-2">
-          <h3 className="text-base mt-2 mb-1">
+          <h3 className="text-base font-normal mt-3 mb-1">
             Compound Annual Growth Rate (CAGR):
           </h3>
-          <div className="font-mono text-lg bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-1.5">
+          <div className="font-mono text-lg bg-orange-100 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-1.5">
             {this.compound(this.state.value)}
           </div>
-          <h3 className="text-base mt-4 mb-1 ">Beginning to End:</h3>
-          <div className="font-mono text-lg bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-1.5">
+          <h3 className="text-base font-normal mt-3 mb-1 ">Beginning to End:</h3>
+          <div className="font-mono text-lg bg-orange-100 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-1.5">
             {this.startToEnd(this.state.value)}
           </div>
-          <h3 className="text-base mt-4 mb-1 ">Average of Y/Y:</h3>
-          <div className="font-mono text-lg bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-2">
+          <h3 className="text-base font-normal mt-3 mb-1 ">Average of Y/Y:</h3>
+          <div className="font-mono text-lg bg-orange-100 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-2">
             {this.average(this.state.value)}
           </div>
-          <h3 className="text-base mt-4 mb-1 ">Y/Y List:</h3>
-          <div className="font-mono text-md bg-amber-100 inline-block min-h-[2.5rem] min-w-[14rem] px-2 py-2">
+          <h3 className="text-base font-normal mt-3 mb-1 ">Y/Y List:</h3>
+          <div className="font-mono text-md bg-orange-100 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-2">
             <div
               dangerouslySetInnerHTML={{
                 __html: this.yearToYear(this.state.value),
