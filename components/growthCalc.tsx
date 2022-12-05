@@ -44,9 +44,9 @@ class GrowthCalc extends Component<{}, { value: number[]; out: any }> {
     if (isNaN(n)) {
       result = "unsupported input";
     } else if (n === Infinity) {
-      result = ` ∞`;
+      result = ` ∞%`;
     } else if (n === -Infinity) {
-      result = ` -∞`;
+      result = ` -∞%`;
     } else {
       result = n.toFixed(precision) + "%";
     }
