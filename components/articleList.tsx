@@ -101,7 +101,7 @@ const svgArrow: string = `
 
 const listItems = articles.map((article) => (
   <li key={article.slug} className="mb-8 list-none ml-0">
-    <Link href={article.slug} className="no-underline font-normal">
+    <Link href={article.slug} passHref className="no-underline font-normal">
       <h3 className="text-base m-0">
         {article.title}
         &ensp;

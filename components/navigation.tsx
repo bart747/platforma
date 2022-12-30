@@ -14,7 +14,7 @@ function navigation() {
 
   return (
     <nav className="mb-4">
-      <Link href="/" title="homepage">
+      <Link href="/" passHref title="homepage">
           <div
             className="font-mono text-sm"
             dangerouslySetInnerHTML={{ __html: symbol }}
