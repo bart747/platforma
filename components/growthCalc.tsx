@@ -43,7 +43,6 @@ class GrowthCalc extends Component<{}, { inputValue: number[], outputObj: Output
             }
           })
         } else {
-
           this.setState({
             outputObj: {
               compoundGrowth: "",
@@ -52,7 +51,6 @@ class GrowthCalc extends Component<{}, { inputValue: number[], outputObj: Output
               yearOverYearGrowth: ""
             }
           })
-
         }
       }
     )
