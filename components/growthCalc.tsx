@@ -4,8 +4,8 @@ import {
   GrowthStartToEnd,
   GrowthYY,
   GrowthAverage,
-} from "../util/growthCalc";
-import CalcVis from "./growthCalcVis";
+} from "../util/math/growthCalc";
+import GrowthVisualiser from "./growthVisualiser";
 
 interface OutputObj {
   compoundGrowth: string,
@@ -143,7 +143,7 @@ class GrowthCalc extends Component<{}, { inputValue: number[], outputObj: Output
         </form>
 
         <section className="mt-2 mb-2 text-gray-500">
-          <CalcVis values={this.state.inputValue} />
+          <GrowthVisualiser values={this.state.inputValue} />
         </section>
 
         <section className="mt-2">

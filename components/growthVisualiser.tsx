@@ -57,8 +57,8 @@ function fmtDataToScale100(data: string[]) {
     scale = 1;
   }
 
-  // make dots invisible by making them out of viewBox
   // when there's not enough input data
+  // make dots invisible by making them out of viewBox
   if (dataNum.length <= 1) {
     dataNum = [200];
   }
