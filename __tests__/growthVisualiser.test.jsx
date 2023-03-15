@@ -1,6 +1,6 @@
 import renderer from "react-test-renderer";
-import CalcVis from "../components/growthCalcVis";
-import { fmtDataToScale100 } from "../components/growthCalcVis";
+import CalcVis from "../components/growthVisualiser";
+import { fmtDataToScale100 } from "../components/growthVisualiser";
 
 const values = [1, 2, 3];
 it("component matching to snapshot", () => {

@@ -4,7 +4,7 @@ import {
   GrowthStartToEnd,
   GrowthYY,
   GrowthAverage,
-} from "../util/growthCalc";
+} from "../util/math/growthCalc";
 import GrowthCalc from "../components/growthCalc";
 
 it("component matching to snapshot", () => {
