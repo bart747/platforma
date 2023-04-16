@@ -117,7 +117,7 @@ const listItems = articles.map((article) => (
 
 function ArticleList() {
   return (
-    <section className="article-list my-10">
+    <section className="article-list my-10 max-w-xl">
       <h2 className="text-base mb-8">Articles:</h2>
       <ul>{listItems}</ul>
     </section>

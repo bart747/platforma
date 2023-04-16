@@ -16,7 +16,7 @@ function ArticlePage(props: ArticleProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />
-      <article className="container max-w-lg">
+      <article className="container">
         <ReactMarkdown allowDangerousHtml={true}>{props.content}</ReactMarkdown>
       </article>
       <Footer />
