@@ -9,7 +9,7 @@ function highlightCode(snippet: string): string {
       `<span class='${dimColor}'>$&</span>`
     )
     .replace(
-      / return | const | let | if(?=\s\{) | else(?=\s\{) | switch(?=\() /g, // major statements
+      /return |const |let |if(?=\s\{) |else(?=\s\{) |switch(?=\() /g, // major statements
       `<span class='${highlightColor}'>$&</span>`
     )
     .replace(
@@ -24,7 +24,8 @@ function highlightCode(snippet: string): string {
       /--|!--/g, // comments - HTML style
       `<span class='${dimColor}'>$&</span>`
     )
-    .replace(/\`\`\`/g, "");
+    .replace(/\`\`\`/g, ""); // markdown code marker
+
   return `<pre><code class='${baseColor}'> ${formattedCode} </code></pre>`;
 }
 

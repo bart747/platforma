@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-// icon source: https://iconoir.com/
-
 const articles = [
   {
     slug: "fonts-linux",

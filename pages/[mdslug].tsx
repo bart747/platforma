@@ -1,14 +1,19 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import ArticlePage from "../components/article";
 import codeHighlight from "../util/codeHighlight";
+import {unified} from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+
 
 interface ArticleProps {
   title: string;
-  content: string;
+  htmlContent: string;
 }
 
 function article(props: ArticleProps) {
-  return <ArticlePage title={props.title} content={props.content} />;
+  return <ArticlePage title={props.title} htmlContent={props.htmlContent} />;
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
@@ -18,12 +23,18 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   );
   const text: string = await res.text();
 
-  const content = text.replace(/```([\s\S]*?)```/g, codeHighlight);
+  const MDtoHTML: any = await unified()
+    .use(remarkParse)
+    .use(remarkRehype, {allowDangerousHtml: true})
+    .use(rehypeStringify, {allowDangerousHtml: true})
+    .process(text.replace(/\`\`\`([\s\S]+?)\`\`\`/g, codeHighlight))
+
+  const htmlContent: string = MDtoHTML.value
   const title = text.split("\n")[0].replace("# ", "");
 
   return {
     props: {
-      content,
+      htmlContent,
       title,
     },
   };

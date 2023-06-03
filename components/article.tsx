@@ -1,11 +1,10 @@
 import Head from "next/head";
 import Footer from "../components/footer";
-import ReactMarkdown from "react-markdown";
 import Navigation from "../components/navigation";
 
 interface ArticleProps {
   title: string;
-  content: string;
+  htmlContent: string;
 }
 
 function ArticlePage(props: ArticleProps) {
@@ -16,8 +15,8 @@ function ArticlePage(props: ArticleProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />
-      <article className="container">
-        <ReactMarkdown allowDangerousHtml={true}>{props.content}</ReactMarkdown>
+      <article>
+        <div dangerouslySetInnerHTML={{__html: props.htmlContent}}></div>
       </article>
       <Footer />
     </div>
