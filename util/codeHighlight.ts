@@ -26,7 +26,7 @@ function highlightCode(snippet: string): string {
     )
     .replace(/\`\`\`/g, ""); // markdown code marker
 
-  return `<pre><code class='${baseColor}'> ${formattedCode} </code></pre>`;
+  return `<pre><code> ${formattedCode} </code></pre>`;
 }
 
 export default highlightCode;
