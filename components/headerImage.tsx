@@ -14,5 +14,7 @@ function HeaderImage() {
     </header>
   );
 }
-
+console.log(`
+“You can’t be a real country unless you have a beer and an airline. It helps if you have some kind of football team, or some nuclear weapons, but at the very least you need a beer.”
+– Frank Zappa`)
 export default HeaderImage;
