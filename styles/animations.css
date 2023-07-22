@@ -1,9 +1,9 @@
 
 .animation-symbol {
   animation: spin-color 5s linear infinite;
-  background-color: #000;
-  height: 5rem;
-  width: 5rem;
+  background-image: url(/skybg.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 @keyframes spin-color {
@@ -11,21 +11,15 @@
     border-radius: 50%;
   }
   25% {
-    border-radius: 50% 50%;
-  }
-  38% {
-    border-radius: 25% 25%;
+    border-radius: 50%;
   }
   50% {
-    transform: rotate(45deg);
-    border-radius: 60% 20%;
+    border-radius: 12%;
   }
   75% {
-    transform: rotate(45deg);
-    border-radius: 70% 10%;
+    border-radius: 75% 12%;
   }
   to {
-    transform: rotate(45deg);
-    border-radius: 50% 50% 50% 50%;
+    border-radius: 50%;
   }
 }
