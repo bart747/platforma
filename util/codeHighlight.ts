@@ -1,11 +1,11 @@
 function highlightCode(snippet: string): string {
-  const dimColor: string = "text-gray-500";
+  const dimColor: string = "#808080";
   const highlightColor: string = "text-brand-orange";
 
   const formattedCode = snippet
     .replace(
       /[{}();<>]/g, // brackets, semicolons
-      `<span class='${dimColor}'>$&</span>`
+      `<span style="color:${dimColor}">$&</span>`
     )
     .replace(
       /return |const |let |if(?=\s\{) |else(?=\s\{) |switch(?=\() /g, // major statements
@@ -17,11 +17,11 @@ function highlightCode(snippet: string): string {
     )
     .replace(
       /(\/\/)[\s\S].*/g, // comments - JS style
-      `<span class='${dimColor}'>$&</span>`
+      `<span style="color:${dimColor}">$&</span>`
     )
     .replace(
       /--|!--/g, // comments - HTML style
-      `<span class='${dimColor}'>$&</span>`
+      `<span style="color:${dimColor}">$&</span>`
     )
     .replace(/\`\`\`/g, ""); // markdown code marker
 
