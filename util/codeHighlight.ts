@@ -9,11 +9,11 @@ function highlightCode(snippet: string): string {
     )
     .replace(
       /return |const |let |if(?=\s\{) |else(?=\s\{) |switch(?=\() /g, // major statements
-      `<span class='${highlightColor}'>$&</span>`
+      `<span class="${highlightColor}">$&</span>`
     )
     .replace(
-      /\=\<span class=\'\S*\'\>\>\<\/span\>/g, // arrow function symbol
-      `<span class='${highlightColor}'>=></span>`
+      /\=\<span style=\S*\>\>\<\/span\>/g, // arrow function symbol
+      `<span class="${highlightColor}">=></span>`
     )
     .replace(
       /(\/\/)[\s\S].*/g, // comments - JS style
