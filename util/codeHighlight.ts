@@ -1,7 +1,6 @@
 function highlightCode(snippet: string): string {
-  const baseColor: string = "text-amber-700";
   const dimColor: string = "text-gray-500";
-  const highlightColor: string = "text-brand-maroon";
+  const highlightColor: string = "text-brand-orange";
 
   const formattedCode = snippet
     .replace(

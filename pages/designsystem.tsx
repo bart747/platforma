@@ -99,7 +99,7 @@ let b = 8
                 <rect width="80" height="80" />
               </svg>
               <svg
-                className="fill-brand-maroon inline-block m-2"
+                className="fill-brand-orange inline-block m-2"
                 width="80"
                 height="80"
               >
@@ -113,7 +113,7 @@ let b = 8
                 width="19"
                 height="19"
                 fill="currentColor"
-                className="align-middle inline text-brand-maroon"
+                className="align-middle inline text-brand-orange"
                 viewBox="0 0 16 16"
               >
                 <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
@@ -126,7 +126,7 @@ let b = 8
           <section>
             <h3
               className="text-center mt-20
-                           font-mono font-normal text-gray-500"
+                          font-mono font-normal text-gray-500"
             >
               Index Header Image
             </h3>
@@ -135,7 +135,7 @@ let b = 8
           <section>
             <h3
               className="text-center mt-20
-                           font-mono font-normal text-gray-500"
+                          font-mono font-normal text-gray-500"
             >
               Typography
             </h3>

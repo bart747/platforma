@@ -60,7 +60,7 @@ const listItems = articles.map((article) => (
           dangerouslySetInnerHTML={{ __html: svgArrow }}
         ></span>
       </h3>
-      <p className="text-sm text-gray-600 mt-2">{article.excerpt}</p>
+      <p className="text-sm text-gray-400 mt-2">{article.excerpt}</p>
     </Link>
   </li>
 ));
