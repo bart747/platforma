@@ -134,15 +134,15 @@ class GrowthCalc extends Component<{}, { inputValue: number[], outputObj: Output
               add comma separated numbers:
             </div>
             <input
-              className="text-xl font-mono caret-blue-600 focus:outline-none border-2 border-gray-400 p-2 min-w-full rounded-sm"
+              className="text-xl font-mono caret-blue-400 placeholder:text-slate-500 placeholder:italic focus:outline-none border-2 border-neutral-500 bg-slate-700 p-2 min-w-full rounded-sm"
               onChange={this.handleChange}
-              placeholder="110, 120, 130, 140, 150"
+              placeholder="110, 120.5, 130, 140, 150"
               autoFocus
             />
           </label>
         </form>
 
-        <section className="mt-2 mb-2 text-gray-500">
+        <section className="mt-2 mb-2 text-neutral-400">
           <GrowthVisualiser values={this.state.inputValue} />
         </section>
 
@@ -150,19 +150,19 @@ class GrowthCalc extends Component<{}, { inputValue: number[], outputObj: Output
           <h3 className="text-base font-normal mt-3 mb-1">
             Compound Annual Growth Rate (CAGR):
           </h3>
-          <div className="font-mono text-lg bg-orange-100 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-1.5">
+          <div className="font-mono text-lg bg-stone-700  00 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-1.5">
             {this.state.outputObj.compoundGrowth}
           </div>
           <h3 className="text-base font-normal mt-3 mb-1 ">Beginning to End:</h3>
-          <div className="font-mono text-lg bg-orange-100 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-1.5">
+          <div className="font-mono text-lg bg-stone-700 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-1.5">
             {this.state.outputObj.startToEndGrowth}
           </div>
           <h3 className="text-base font-normal mt-3 mb-1 ">Average of Y-Over-Y:</h3>
-          <div className="font-mono text-lg bg-orange-100 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-2">
+          <div className="font-mono text-lg bg-stone-700 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-2">
             {this.state.outputObj.averageGrowth}
           </div>
           <h3 className="text-base font-normal mt-3 mb-1 ">Y-Over-Y List:</h3>
-          <div className="font-mono text-md bg-orange-100 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-2">
+          <div className="font-mono text-md bg-stone-700 inline-block min-h-[2.5rem] min-w-[7rem] px-2 py-2">
             <div
               dangerouslySetInnerHTML={{
                 __html: this.state.outputObj.yearOverYearGrowth,
