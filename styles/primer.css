@@ -38,7 +38,8 @@
 
 :root {
   --ivory: #fffbf5;
-  --black: #303040;
+  --black: #303032;
+  --night: #292933;
   --blue: #58f;
   --orange: #a54;
   --gray: #ccc;
@@ -81,6 +82,7 @@
 }
 
 html {
+  background-color: var(--night);
   color: var(--gray);
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -91,7 +93,7 @@ html {
 }
 
 body {
-  background-color: var(--black);
+
   margin: 0;
   padding: 1rem;
 }
