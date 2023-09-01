@@ -6,6 +6,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 
+const source: string = "https://raw.githubusercontent.com/bart747/notebook/main/articles/"
 
 interface ArticleProps {
   title: string;
@@ -18,9 +19,7 @@ function article(props: ArticleProps) {
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const fileName: string = `${params.mdslug}.md`;
-  const res: any = await fetch(
-    `https://raw.githubusercontent.com/bart747/notebook/main/articles/${fileName}`
-  );
+  const res: any = await fetch(`${source}${fileName}`);
   const text: string = await res.text();
 
   const MDtoHTML: any = await unified()
