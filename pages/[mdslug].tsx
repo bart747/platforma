@@ -22,8 +22,12 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const res: any = await fetch(`${source}${fileName}`);
   const text: string = await res.text();
 
+  // 'unified' is an interface for parsing, inspecting, transforming,
+  // and serializing content through syntax trees.
   const MDtoHTML: any = await unified()
+    // parse Markdown
     .use(remarkParse)
+    // process HTML
     .use(remarkRehype, {allowDangerousHtml: true})
     .use(rehypeStringify, {allowDangerousHtml: true})
     .process(text.replace(/\`\`\`([\s\S]+?)\`\`\`/g, codeHighlight))
