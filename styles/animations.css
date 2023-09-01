@@ -1,6 +1,6 @@
 
 .animation-symbol {
-  animation: spin-color 5s linear infinite;
+  animation: spin-color 7s linear infinite;
   background-image: url(/skybg.jpg);
   background-position: center;
   background-size: cover;
@@ -10,13 +10,10 @@
   from {
     border-radius: 50%;
   }
-  25% {
-    border-radius: 50%;
-  }
-  50% {
+  33% {
     border-radius: 12%;
   }
-  75% {
+  66% {
     border-radius: 75% 12%;
   }
   to {
