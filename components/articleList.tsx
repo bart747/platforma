@@ -52,7 +52,7 @@ const svgArrow: string = `
 const listItems = articles.map((article) => (
   <li key={article.slug} className="mb-8 list-none ml-0">
     <Link href={article.slug} passHref className="no-underline font-normal">
-      <h3 className="text-base m-0">
+      <h3 className="text-base m-0 text-gray-100">
         {article.title}
         &ensp;
         <span
@@ -60,7 +60,7 @@ const listItems = articles.map((article) => (
           dangerouslySetInnerHTML={{ __html: svgArrow }}
         ></span>
       </h3>
-      <p className="text-sm text-gray-400 mt-2">{article.excerpt}</p>
+      <p className="text-gray-400">{article.excerpt}</p>
     </Link>
   </li>
 ));
