@@ -40,7 +40,7 @@ function dataVis(props: any) {
   );
 }
 
-function fmtDataToScale100(data: string[]) {
+function fmtDataToScale100(data: string[]): number[] {
   let dataNum: number[] = data
     .filter((el) => el !== "" && el !== " ")
     .map((el) => Number(el));
