@@ -25,8 +25,10 @@ export default function Home() {
         <HeaderImage />
         <main id="main" className="max-w-xl mx-auto">
           <ArticleList />
+          {/*
           <Heuristics />
           <ToolList />
+          */}
           <span id="email" className="align-top"></span>
         </main>
         <Footer />
