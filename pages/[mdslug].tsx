@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import ArticlePage from "../components/article";
 import codeHighlight from "../util/codeHighlight";
-import {unified} from 'unified'
+import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
@@ -18,9 +18,9 @@ function article(props: ArticleProps) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-  const fileName: string = `${params.mdslug}.md`;
-  const res: any = await fetch(`${source}${fileName}`);
-  const text: string = await res.text();
+  const fileName = `${params.mdslug}.md`;
+  const res = await fetch(`${source}${fileName}`);
+  const text = await res.text();
 
   // 'unified' is an interface for parsing, inspecting, transforming,
   // and serializing content through syntax trees.
@@ -28,11 +28,11 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
     // parse Markdown
     .use(remarkParse)
     // process HTML
-    .use(remarkRehype, {allowDangerousHtml: true})
-    .use(rehypeStringify, {allowDangerousHtml: true})
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(text.replace(/\`\`\`([\s\S]+?)\`\`\`/g, codeHighlight))
 
-  const htmlContent: string = MDtoHTML.value
+  const htmlContent = MDtoHTML.value
   const title = text.split("\n")[0].replace("# ", "");
 
   return {

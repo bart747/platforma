@@ -65,14 +65,14 @@ class GrowthCalc extends Component<{}, { inputValue: number[], outputObj: Output
     return (
       input
         .split(/[,;|/]/)
-        .filter((el: any) => el !== "" && el !== " ")
-        .map((el: any) => Number(el))
+        .filter((el) => el !== "" && el !== " ")
+        .map((el) => Number(el))
     )
   }
 
   formatNumberIntoStringValue(num: number): string {
-    const precision: number = 3;
-    let result: string;
+    const precision = 3;
+    let result;
     if (isNaN(num)) {
       result = "unsupported input";
     } else if (num === Infinity) {
@@ -87,41 +87,41 @@ class GrowthCalc extends Component<{}, { inputValue: number[], outputObj: Output
 
   calculateCompoundGrowth(inputArray: number[]): string {
     const years = inputArray.length - 1;
-    const begin: number = inputArray[0];
-    const final: number = inputArray[inputArray.length - 1];
+    const begin = inputArray[0];
+    const final = inputArray[inputArray.length - 1];
 
-    let growth: number = GrowthCompound(begin, final, years);
-    const result: string = this.formatNumberIntoStringValue(growth);
+    let growth = GrowthCompound(begin, final, years);
+    const result = this.formatNumberIntoStringValue(growth);
     return result;
   }
 
   calculateStartToEndGrowth(inputArray: number[]): string {
-    const start: number = inputArray[0];
-    const end: number = inputArray[inputArray.length - 1];
+    const start = inputArray[0];
+    const end = inputArray[inputArray.length - 1];
 
-    let growth: number = GrowthStartToEnd(start, end);
-    let result: string = this.formatNumberIntoStringValue(growth);
+    let growth = GrowthStartToEnd(start, end);
+    let result = this.formatNumberIntoStringValue(growth);
     return result;
   }
 
   calculateYearOverYearGrowth(inputArray: number[]): string {
-    const yearOverYearArr: number[] = GrowthYY(inputArray);
-    const result: string = yearOverYearArr
+    const yearOverYearArr = GrowthYY(inputArray);
+    const result = yearOverYearArr
       .map((el) => this.formatNumberIntoStringValue(el))
       .join(", ");
     return result;
   }
 
   calculateAverageGrowth(inputArray: number[]): string {
-    const yearOverYearArr: number[] = GrowthYY(inputArray);
-    let averageNum: number = 0;
+    const yearOverYearArr = GrowthYY(inputArray);
+    let averageNum = 0;
     if (yearOverYearArr.length > 1) {
       averageNum = GrowthAverage(yearOverYearArr);
     }
     if (yearOverYearArr.length === 1) {
       averageNum = yearOverYearArr[0];
     }
-    const result: string = this.formatNumberIntoStringValue(averageNum);
+    const result = this.formatNumberIntoStringValue(averageNum);
     return result;
   }
 
